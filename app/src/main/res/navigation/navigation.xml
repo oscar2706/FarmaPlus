@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_navigation"
+    app:startDestination="@id/principalCliente">
+    <fragment
+        android:id="@+id/principalCliente"
+        android:name="com.example.farmaplus.ClientFragments.PrincipalCliente"
+        android:label="PrincipalCliente" >
+        <action
+            android:id="@+id/action_principalCliente_to_nuevoPedido"
+            app:destination="@id/nuevoPedido" />
+        <action
+            android:id="@+id/action_principalCliente_to_pedidoActual"
+            app:destination="@id/pedidoActual" />
+        <action
+            android:id="@+id/action_principalCliente_to_historialPedidos"
+            app:destination="@id/historialPedidos" />
+        <action
+            android:id="@+id/action_principalCliente_to_medicamentos"
+            app:destination="@id/medicamentos" />
+        <action
+            android:id="@+id/action_principalCliente_to_configuracion"
+            app:destination="@id/configuracion" />
+    </fragment>
+    <fragment
+        android:id="@+id/configuracion"
+        android:name="com.example.farmaplus.ClientFragments.Configuracion"
+        android:label="fragment_configuracion"
+        tools:layout="@layout/fragment_configuracion" />
+    <fragment
+        android:id="@+id/historialPedidos"
+        android:name="com.example.farmaplus.ClientFragments.HistorialPedidos"
+        android:label="fragment_historial_pedidos"
+        tools:layout="@layout/fragment_historial_pedidos" />
+    <fragment
+        android:id="@+id/pedidoActual"
+        android:name="com.example.farmaplus.ClientFragments.PedidoActual"
+        android:label="fragment_pedido_actual"
+        tools:layout="@layout/fragment_pedido_actual" />
+    <fragment
+        android:id="@+id/nuevoPedido"
+        android:name="com.example.farmaplus.ClientFragments.NuevoPedido"
+        android:label="fragment_nuevo_pedido"
+        tools:layout="@layout/fragment_nuevo_pedido" />
+    <fragment
+        android:id="@+id/medicamentos"
+        android:name="com.example.farmaplus.ClientFragments.Medicamentos"
+        android:label="fragment_medicamentos"
+        tools:layout="@layout/fragment_medicamentos" />
+</navigation>

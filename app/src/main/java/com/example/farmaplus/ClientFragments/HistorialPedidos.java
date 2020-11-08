@@ -1,4 +1,4 @@
-package com.example.farmaplus;
+package com.example.farmaplus.ClientFragments;
 
 import android.os.Bundle;
 
@@ -8,9 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class NuevoPedido extends Fragment {
+import com.example.farmaplus.R;
 
-    public NuevoPedido() {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link HistorialPedidos#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class HistorialPedidos extends Fragment {
+
+    public HistorialPedidos() {
     }
 
     @Override
@@ -21,6 +28,6 @@ public class NuevoPedido extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_nuevo_pedido, container, false);
+        return inflater.inflate(R.layout.fragment_historial_pedidos, container, false);
     }
 }
