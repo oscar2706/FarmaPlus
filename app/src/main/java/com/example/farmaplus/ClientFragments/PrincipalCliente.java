@@ -1,16 +1,23 @@
 package com.example.farmaplus.ClientFragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.farmaplus.LogginHandler;
 import com.example.farmaplus.R;
 
 public class PrincipalCliente extends Fragment implements View.OnClickListener {
@@ -22,6 +29,13 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        LogginHandler.setLoggedIn(getActivity(), true, LogginHandler.UserType.CLIENTE);
+        redirectIfNotLoggedIn();
     }
 
     @Override
@@ -38,7 +52,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
+        //Se asigna el navigationController para poder navegar entre fragmentos
         NavController navController = Navigation.findNavController(view);
         Navigation.setViewNavController(view, navController);
 
@@ -55,6 +69,14 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
             case R.id.cardView_Medicamentos:
                 navController.navigate(R.id.action_principalCliente_to_medicamentos);
                 break;
+        }
+    }
+
+    private void redirectIfNotLoggedIn() {
+        if(!LogginHandler.isLoggedIn(getActivity())){
+            NavController navController = Navigation.findNavController(getView());
+            Navigation.setViewNavController(getView(), navController);
+            navController.navigate(R.id.action_principalCliente_to_login);
         }
     }
 }
