@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -34,7 +35,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LogginHandler.setLoggedIn(getActivity(), true, LogginHandler.UserType.CLIENTE);
+        LogginHandler.setLoggedIn(getActivity(), false, LogginHandler.UserType.CLIENTE);
         redirectIfNotLoggedIn();
     }
 
@@ -76,7 +77,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
         if(!LogginHandler.isLoggedIn(getActivity())){
             NavController navController = Navigation.findNavController(getView());
             Navigation.setViewNavController(getView(), navController);
-            navController.navigate(R.id.action_principalCliente_to_login);
+            navController.navigate(R.id.action_principalCliente_to_login, null , null) ;
         }
     }
 }
