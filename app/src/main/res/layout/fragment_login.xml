@@ -105,6 +105,7 @@
             android:layout_marginHorizontal="20dp"
             android:paddingVertical="10dp"
             android:text="Iniciar Sesión"
+            android:textAllCaps="true"
             android:textSize="14sp"
             app:cornerRadius="14dp" />
 
@@ -116,6 +117,7 @@
             android:layout_marginVertical="20dp"
             android:paddingVertical="10dp"
             android:text="Registrarse"
+            android:textAllCaps="true"
             android:textSize="14sp"
             app:cornerRadius="14dp" />
 
