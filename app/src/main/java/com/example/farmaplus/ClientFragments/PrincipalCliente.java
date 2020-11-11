@@ -75,9 +75,8 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
     private void redirectIfNotLoggedIn() {
         if(!LogginHandler.isLoggedIn(getActivity())){
-            NavController navController = Navigation.findNavController(getView());
-            Navigation.setViewNavController(getView(), navController);
-            navController.navigate(R.id.action_principalCliente_to_login, null , null) ;
+            NavController navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
+            navController.navigate(R.id.action_principalCliente_to_login) ;
         }
     }
 }

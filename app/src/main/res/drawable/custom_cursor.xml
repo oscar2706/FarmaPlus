@@ -8,6 +8,6 @@
             android:height="2dp"
             android:width="2dp" />
         <solid
-            android:color="@color/white" />
+            android:color="@color/whiteBackground"/>
     </shape>
 </inset>

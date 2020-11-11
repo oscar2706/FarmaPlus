@@ -9,9 +9,6 @@
         android:name="com.example.farmaplus.ClientFragments.PrincipalCliente"
         android:label="PrincipalCliente" >
         <action
-            android:id="@+id/action_principalCliente_to_nuevoPedido"
-            app:destination="@id/nuevoPedido" />
-        <action
             android:id="@+id/action_principalCliente_to_pedidoActual"
             app:destination="@id/pedidoActual" />
         <action
@@ -26,9 +23,10 @@
         <action
             android:id="@+id/action_principalCliente_to_login"
             app:destination="@id/login"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/user_navigation"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/user_navigation" />
+        <action
+            android:id="@+id/action_principalCliente_to_nuevoPedido"
+            app:destination="@id/nuevoPedido" />
     </fragment>
     <fragment
         android:id="@+id/configuracion"
@@ -59,5 +57,9 @@
         android:id="@+id/login"
         android:name="com.example.farmaplus.Login"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_principalCliente"
+            app:destination="@id/principalCliente" />
+    </fragment>
 </navigation>
