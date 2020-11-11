@@ -5,10 +5,12 @@
     <color name="blueLight">#49BBE9</color>
     <color name="yellow">#FBC40E</color>
     <color name="yellowVariant">#F2AE02</color>
-    <color name="cardBlue">#C8EBF9</color>
-    <color name="cardYellow">#FEF0C2</color>
+    <color name="cardBlue">#F2FAFD</color>
+    <color name="cardBlueDark">#91DAF3</color>
+    <color name="cardYellow">#FEFAEB</color>
+    <color name="cardYellowDark">#F9E18B</color>
     <color name="darkBackground">#121212</color>
-    <color name="onDarkSurface">#303F4B</color>
+    <color name="cardDark">#2C2C2C</color>
     <color name="whiteBackground">#FFFFFFFF</color>
     <color name="onWhiteSurface">#F5F5F5</color>
     <color name="disabled">#B8B8B8</color>

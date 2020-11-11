@@ -1,17 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.FarmaPlus" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+    <style name="Theme.FarmaPlus" parent="Theme.MaterialComponents.DayNight">
         <item name="fontFamily">@font/montserrat</item>
+        <item name="elevationOverlayEnabled">true</item>
+
+        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/blueVariant</item>
-        <item name="colorOnPrimary">@color/darkBackground</item>
-        <item name="colorOnSurface">@color/onDarkSurface</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/yellow</item>
         <item name="colorSecondaryVariant">@color/yellowVariant</item>
-        <item name="colorOnSecondary">@color/onDarkSurface</item>
+
+        <!-- Text colors -->
+        <item name="colorOnPrimary">@color/whiteBackground</item>
+        <item name="colorOnSurface">@color/darkBackground</item>
+        <item name="colorOnSecondary">@color/whiteBackground</item>
+
+        <!-- Background colors-->
+        <item name="backgroundColor">@color/whiteBackground</item>
+        <item name="colorSurface">@color/cardDark</item>
+        <item name="cardViewStyle">@style/YourCardView</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="actionBarStyle">@style/ActionBarStyle</item>
@@ -24,5 +34,8 @@
 
     <style name="my_Toolbar" parent="@style/Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">@color/whiteBackground</item>
+    </style>
+    <style name="YourCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/cardDark</item>
     </style>
 </resources>
