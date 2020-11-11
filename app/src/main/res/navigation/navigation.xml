@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/principalCliente">
+    app:startDestination="@id/login">
     <fragment
         android:id="@+id/principalCliente"
         android:name="com.example.farmaplus.ClientFragments.PrincipalCliente"
-        android:label="PrincipalCliente" >
+        android:label="Principal">
         <action
             android:id="@+id/action_principalCliente_to_pedidoActual"
             app:destination="@id/pedidoActual" />
@@ -31,33 +31,33 @@
     <fragment
         android:id="@+id/configuracion"
         android:name="com.example.farmaplus.ClientFragments.Configuracion"
-        android:label="fragment_configuracion"
+        android:label="Configuración"
         tools:layout="@layout/fragment_configuracion" />
     <fragment
         android:id="@+id/historialPedidos"
         android:name="com.example.farmaplus.ClientFragments.HistorialPedidos"
-        android:label="fragment_historial_pedidos"
+        android:label="Historial pedidos"
         tools:layout="@layout/fragment_historial_pedidos" />
     <fragment
         android:id="@+id/pedidoActual"
         android:name="com.example.farmaplus.ClientFragments.PedidoActual"
-        android:label="fragment_pedido_actual"
+        android:label="Pedido Actual"
         tools:layout="@layout/fragment_pedido_actual" />
     <fragment
         android:id="@+id/nuevoPedido"
         android:name="com.example.farmaplus.ClientFragments.NuevoPedido"
-        android:label="fragment_nuevo_pedido"
+        android:label="Nuevo pedido"
         tools:layout="@layout/fragment_nuevo_pedido" />
     <fragment
         android:id="@+id/medicamentos"
         android:name="com.example.farmaplus.ClientFragments.Medicamentos"
-        android:label="fragment_medicamentos"
+        android:label="Medicamentos"
         tools:layout="@layout/fragment_medicamentos" />
     <fragment
         android:id="@+id/login"
         android:name="com.example.farmaplus.Login"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label="Inicio de sesión"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_to_principalCliente"
             app:destination="@id/principalCliente" />
