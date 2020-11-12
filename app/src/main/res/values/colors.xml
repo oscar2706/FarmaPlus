@@ -14,4 +14,5 @@
     <color name="whiteBackground">#FFFFFFFF</color>
     <color name="onWhiteSurface">#F5F5F5</color>
     <color name="disabled">#B8B8B8</color>
+    <color name="grey">#DBDBDB</color>
 </resources>
