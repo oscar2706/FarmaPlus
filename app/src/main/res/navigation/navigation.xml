@@ -10,29 +10,52 @@
         android:label="Principal">
         <action
             android:id="@+id/action_principalCliente_to_pedidoActual"
-            app:destination="@id/pedidoActual" />
+            app:destination="@id/pedidoActual"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
         <action
             android:id="@+id/action_principalCliente_to_historialPedidos"
-            app:destination="@id/historialPedidos" />
+            app:destination="@id/historialPedidos"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
         <action
             android:id="@+id/action_principalCliente_to_medicamentos"
-            app:destination="@id/medicamentos" />
+            app:destination="@id/medicamentos"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
         <action
             android:id="@+id/action_principalCliente_to_configuracion"
-            app:destination="@id/configuracion" />
+            app:destination="@id/misDirecciones"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_principalCliente_to_login"
             app:destination="@id/login"
-            app:popUpTo="@id/user_navigation" />
+            app:popUpTo="@id/user_navigation"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
         <action
             android:id="@+id/action_principalCliente_to_nuevoPedido"
-            app:destination="@id/nuevoPedido" />
+            app:destination="@id/nuevoPedido"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
     </fragment>
     <fragment
-        android:id="@+id/configuracion"
-        android:name="com.example.farmaplus.ClientFragments.Configuracion"
-        android:label="Configuración"
-        tools:layout="@layout/fragment_configuracion" />
+        android:id="@+id/misDirecciones"
+        android:name="com.example.farmaplus.ClientFragments.MisDirecciones"
+        android:label="Mis direcciones" />
     <fragment
         android:id="@+id/historialPedidos"
         android:name="com.example.farmaplus.ClientFragments.HistorialPedidos"
@@ -60,6 +83,10 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_to_principalCliente"
-            app:destination="@id/principalCliente" />
+            app:destination="@id/principalCliente"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
     </fragment>
 </navigation>
