@@ -28,8 +28,7 @@ import com.example.farmaplus.R;
 
 public class PrincipalCliente extends Fragment implements View.OnClickListener {
     Button button_NuevoPedido;
-    //NavController para navegar
-    NavController navController;
+    NavController navController; //1 NavController para poder navegar
 
     public PrincipalCliente() {
     }
@@ -38,7 +37,8 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        //
+
+        //2 Para asignar la navegacion al navController
         navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
     }
 
@@ -63,6 +63,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_NuevoPedido:
+                //3 Método para navegar a otro fragmento (el action se puede ver en navigation.xml)
                 navController.navigate(R.id.action_principalCliente_to_nuevoPedido);
                 break;
             case R.id.cardView_PedidoActual:
