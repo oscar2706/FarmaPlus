@@ -37,7 +37,11 @@
     <fragment
         android:id="@+id/misDirecciones"
         android:name="com.example.farmaplus.client.MisDirecciones"
-        android:label="Mis direcciones" />
+        android:label="Mis direcciones" >
+        <action
+            android:id="@+id/action_misDirecciones_to_bottomDialog"
+            app:destination="@id/bottomDialog" />
+    </fragment>
     <fragment
         android:id="@+id/historialPedidos"
         android:name="com.example.farmaplus.client.HistorialPedidos"
@@ -83,4 +87,12 @@
             app:popEnterAnim="@anim/left_to_right"
             app:popExitAnim="@anim/right_to_left" />
     </fragment>
+    <dialog
+        android:id="@+id/bottomDialog"
+        android:name="com.example.farmaplus.client.BottomDialog"
+        android:label="BottomDialog" >
+        <action
+            android:id="@+id/action_bottomDialog_to_misDirecciones"
+            app:destination="@id/misDirecciones" />
+    </dialog>
 </navigation>
