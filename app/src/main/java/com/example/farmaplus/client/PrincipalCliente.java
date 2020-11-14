@@ -4,11 +4,21 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +28,8 @@ import com.example.farmaplus.R;
 
 public class PrincipalCliente extends Fragment implements View.OnClickListener {
     Button button_NuevoPedido;
+    //NavController para navegar
+    NavController navController;
 
     public PrincipalCliente() {
     }
@@ -25,6 +37,9 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        //
+        navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
     }
 
     @Override
@@ -46,10 +61,6 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        //Se asigna el navigationController para poder navegar entre fragmentos
-        NavController navController = Navigation.findNavController(view);
-        Navigation.setViewNavController(view, navController);
-
         switch (view.getId()) {
             case R.id.button_NuevoPedido:
                 navController.navigate(R.id.action_principalCliente_to_nuevoPedido);
@@ -66,10 +77,30 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_direcciones:
+                navController.navigate(R.id.action_principalCliente_to_direcciones);
+                break;
+            case R.id.menu_logout:
+                navController.navigate(R.id.login_fragment);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
     private void redirectIfNotLoggedIn() {
         if(!LogginHandler.isLoggedIn(getActivity())){
             NavController navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
-            navController.navigate(R.id.action_principalCliente_to_login) ;
+            navController.navigate(R.id.login_fragment) ;
         }
     }
 }

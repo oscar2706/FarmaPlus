@@ -3,9 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/login">
+    app:startDestination="@id/login_fragment">
     <fragment
-        android:id="@+id/principalCliente"
+        android:id="@+id/login_fragment"
+        android:name="com.example.farmaplus.Login"
+        android:label="Inicio de sesión"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_principalCliente"
+            app:destination="@id/principalCliente_fragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit"
+            app:popUpTo="@id/login_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/nuevoPedido"
+        android:name="com.example.farmaplus.client.NuevoPedido"
+        android:label="Nuevo pedido"
+        tools:layout="@layout/fragment_nuevo_pedido" />
+    <fragment
+        android:id="@+id/pedidoActual"
+        android:name="com.example.farmaplus.client.PedidoActual"
+        android:label="Pedido Actual"
+        tools:layout="@layout/fragment_pedido_actual" />
+    <fragment
+        android:id="@+id/medicamentos"
+        android:name="com.example.farmaplus.client.Medicamentos"
+        android:label="Medicamentos"
+        tools:layout="@layout/fragment_medicamentos" />
+    <fragment
+        android:id="@+id/misDirecciones"
+        android:name="com.example.farmaplus.client.MisDirecciones"
+        android:label="Mis direcciones" />
+    <fragment
+        android:id="@+id/historialPedidos"
+        android:name="com.example.farmaplus.client.HistorialPedidos"
+        android:label="Historial pedidos"
+        tools:layout="@layout/fragment_historial_pedidos" />
+    <fragment
+        android:id="@+id/principalCliente_fragment"
         android:name="com.example.farmaplus.client.PrincipalCliente"
         android:label="Principal">
         <action
@@ -30,20 +69,12 @@
             app:popEnterAnim="@anim/left_to_right"
             app:popExitAnim="@anim/right_to_left" />
         <action
-            android:id="@+id/action_principalCliente_to_configuracion"
+            android:id="@+id/action_principalCliente_to_direcciones"
             app:destination="@id/misDirecciones"
             app:enterAnim="@anim/fragment_open_enter"
             app:exitAnim="@anim/fragment_open_exit"
             app:popEnterAnim="@anim/fragment_close_enter"
             app:popExitAnim="@anim/fragment_close_exit" />
-        <action
-            android:id="@+id/action_principalCliente_to_login"
-            app:destination="@id/login"
-            app:popUpTo="@id/user_navigation"
-            app:enterAnim="@anim/push_left_in"
-            app:exitAnim="@anim/push_left_out"
-            app:popEnterAnim="@anim/left_to_right"
-            app:popExitAnim="@anim/right_to_left" />
         <action
             android:id="@+id/action_principalCliente_to_nuevoPedido"
             app:destination="@id/nuevoPedido"
@@ -51,42 +82,5 @@
             app:exitAnim="@anim/push_left_out"
             app:popEnterAnim="@anim/left_to_right"
             app:popExitAnim="@anim/right_to_left" />
-    </fragment>
-    <fragment
-        android:id="@+id/misDirecciones"
-        android:name="com.example.farmaplus.client.MisDirecciones"
-        android:label="Mis direcciones" />
-    <fragment
-        android:id="@+id/historialPedidos"
-        android:name="com.example.farmaplus.client.HistorialPedidos"
-        android:label="Historial pedidos"
-        tools:layout="@layout/fragment_historial_pedidos" />
-    <fragment
-        android:id="@+id/pedidoActual"
-        android:name="com.example.farmaplus.client.PedidoActual"
-        android:label="Pedido Actual"
-        tools:layout="@layout/fragment_pedido_actual" />
-    <fragment
-        android:id="@+id/nuevoPedido"
-        android:name="com.example.farmaplus.client.NuevoPedido"
-        android:label="Nuevo pedido"
-        tools:layout="@layout/fragment_nuevo_pedido" />
-    <fragment
-        android:id="@+id/medicamentos"
-        android:name="com.example.farmaplus.client.Medicamentos"
-        android:label="Medicamentos"
-        tools:layout="@layout/fragment_medicamentos" />
-    <fragment
-        android:id="@+id/login"
-        android:name="com.example.farmaplus.Login"
-        android:label="Inicio de sesión"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_login_to_principalCliente"
-            app:destination="@id/principalCliente"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit" />
     </fragment>
 </navigation>
