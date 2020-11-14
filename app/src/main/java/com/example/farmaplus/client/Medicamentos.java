@@ -1,4 +1,4 @@
-package com.example.farmaplus.ClientFragments;
+package com.example.farmaplus.client;
 
 import android.os.Bundle;
 
@@ -10,14 +10,10 @@ import android.view.ViewGroup;
 
 import com.example.farmaplus.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HistorialPedidos#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class HistorialPedidos extends Fragment {
+public class Medicamentos extends Fragment {
 
-    public HistorialPedidos() {
+    public Medicamentos() {
+        // Required empty public constructor
     }
 
     @Override
@@ -28,6 +24,6 @@ public class HistorialPedidos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_historial_pedidos, container, false);
+        return inflater.inflate(R.layout.fragment_medicamentos, container, false);
     }
 }

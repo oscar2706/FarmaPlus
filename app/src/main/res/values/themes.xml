@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.FarmaPlus" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorOnPrimary">@color/whiteBackground</item>
-        <item name="colorOnSurface">@color/onWhiteSurface</item>
+        <item name="colorOnSurface">@color/cardDark</item>
 
         <!-- Primary brand color. -->
         <item name="fontFamily">@font/montserrat</item>

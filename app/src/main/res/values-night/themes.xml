@@ -14,7 +14,7 @@
 
         <!-- Text colors -->
         <item name="colorOnPrimary">@color/whiteBackground</item>
-        <item name="colorOnSurface">@color/darkBackground</item>
+        <item name="colorOnSurface">@color/grey</item>
         <item name="colorOnSecondary">@color/whiteBackground</item>
 
         <!-- Background colors-->

@@ -6,7 +6,7 @@
     app:startDestination="@id/login">
     <fragment
         android:id="@+id/principalCliente"
-        android:name="com.example.farmaplus.ClientFragments.PrincipalCliente"
+        android:name="com.example.farmaplus.client.PrincipalCliente"
         android:label="Principal">
         <action
             android:id="@+id/action_principalCliente_to_pedidoActual"
@@ -54,26 +54,26 @@
     </fragment>
     <fragment
         android:id="@+id/misDirecciones"
-        android:name="com.example.farmaplus.ClientFragments.MisDirecciones"
+        android:name="com.example.farmaplus.client.MisDirecciones"
         android:label="Mis direcciones" />
     <fragment
         android:id="@+id/historialPedidos"
-        android:name="com.example.farmaplus.ClientFragments.HistorialPedidos"
+        android:name="com.example.farmaplus.client.HistorialPedidos"
         android:label="Historial pedidos"
         tools:layout="@layout/fragment_historial_pedidos" />
     <fragment
         android:id="@+id/pedidoActual"
-        android:name="com.example.farmaplus.ClientFragments.PedidoActual"
+        android:name="com.example.farmaplus.client.PedidoActual"
         android:label="Pedido Actual"
         tools:layout="@layout/fragment_pedido_actual" />
     <fragment
         android:id="@+id/nuevoPedido"
-        android:name="com.example.farmaplus.ClientFragments.NuevoPedido"
+        android:name="com.example.farmaplus.client.NuevoPedido"
         android:label="Nuevo pedido"
         tools:layout="@layout/fragment_nuevo_pedido" />
     <fragment
         android:id="@+id/medicamentos"
-        android:name="com.example.farmaplus.ClientFragments.Medicamentos"
+        android:name="com.example.farmaplus.client.Medicamentos"
         android:label="Medicamentos"
         tools:layout="@layout/fragment_medicamentos" />
     <fragment

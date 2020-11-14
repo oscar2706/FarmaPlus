@@ -1,4 +1,4 @@
-package com.example.farmaplus.ClientFragments;
+package com.example.farmaplus.client;
 
 import android.os.Bundle;
 
@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.farmaplus.R;
 
-public class Medicamentos extends Fragment {
+public class DetallesMedicamento extends Fragment {
 
-    public Medicamentos() {
-        // Required empty public constructor
+    public DetallesMedicamento() {
     }
 
     @Override
@@ -24,6 +23,6 @@ public class Medicamentos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_medicamentos, container, false);
+        return inflater.inflate(R.layout.fragment_detalles_medicamento, container, false);
     }
 }
