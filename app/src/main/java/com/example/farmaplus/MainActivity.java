@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         navController = Navigation.findNavController(this, R.id.fragment_navigation);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(null);
         setSupportActionBar(toolbar);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
