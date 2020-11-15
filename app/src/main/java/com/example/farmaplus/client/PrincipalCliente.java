@@ -37,15 +37,16 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
-        //2 Para asignar la navegacion al navController
-        navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
+        //TODO: Checar correctamente si ya inicio sesión para redirigin al login
         redirectIfNotLoggedIn();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //2 Para asignar la navegacion al navController
+        navController = Navigation.findNavController(view);
+        Navigation.setViewNavController(view, navController);
     }
 
     @Override
