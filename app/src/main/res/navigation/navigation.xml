@@ -18,6 +18,12 @@
             app:popExitAnim="@anim/fragment_close_exit"
             app:popUpTo="@id/login_fragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_fragment_to_principalRepartidorFragment"
+            app:destination="@id/principalRepartidor" />
+        <action
+            android:id="@+id/action_login_fragment_to_principalFarmaciaFragment"
+            app:destination="@id/principalFarmacia" />
     </fragment>
     <fragment
         android:id="@+id/nuevoPedido"
@@ -143,4 +149,14 @@
             android:id="@+id/action_bottomDialogSubirFoto_to_nuevoPedido"
             app:destination="@id/nuevoPedido" />
     </dialog>
+    <fragment
+        android:id="@+id/principalRepartidor"
+        android:name="com.example.farmaplus.delivery_man.PrincipalRepartidorFragment"
+        android:label="Repartidor"
+        tools:layout="@layout/repartidor_principal_repartidor" />
+    <fragment
+        android:id="@+id/principalFarmacia"
+        android:name="com.example.farmaplus.pharmacy.PrincipalFarmaciaFragment"
+        android:label="Farmacia"
+        tools:layout="@layout/farmacia_principal_farmacia" />
 </navigation>

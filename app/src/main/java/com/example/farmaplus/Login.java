@@ -43,7 +43,17 @@ public class Login extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         LogginHandler.setLoggedIn(getActivity(), true, LogginHandler.UserType.CLIENTE);
         NavController navController = Navigation.findNavController(getView());
-        navController.navigate(R.id.action_login_to_principalCliente);
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        switch (spinner_userType.getSelectedItem().toString()){
+            case "Repartidor":
+                navController.navigate(R.id.action_login_fragment_to_principalRepartidorFragment);
+                break;
+            case "Cliente":
+                navController.navigate(R.id.action_login_to_principalCliente);
+                break;
+            case "Farmacia":
+                navController.navigate(R.id.action_login_fragment_to_principalFarmaciaFragment);
+                break;
+        }
     }
 }
