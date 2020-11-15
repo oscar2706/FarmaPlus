@@ -25,14 +25,14 @@
         android:label="Nuevo pedido"
         tools:layout="@layout/fragment_nuevo_pedido" >
         <action
-            android:id="@+id/action_nuevoPedido_to_bottomDialogSleccionaSucursal"
-            app:destination="@id/bottomDialogSleccionaSucursal" />
+            android:id="@+id/action_nuevoPedido_to_dialogSleccionaSucursal"
+            app:destination="@id/dialogSleccionaSucursal" />
         <action
-            android:id="@+id/action_nuevoPedido_to_bottomDialogSeleccionaDireccion"
-            app:destination="@id/bottomDialogSeleccionaDireccion" />
+            android:id="@+id/action_nuevoPedido_to_dialogSeleccionaDireccion"
+            app:destination="@id/dialogSeleccionaDireccion" />
         <action
-            android:id="@+id/action_nuevoPedido_to_bottomDialogSubirFoto"
-            app:destination="@id/bottomDialogSubirFoto" />
+            android:id="@+id/action_nuevoPedido_to_dialogSubirFoto"
+            app:destination="@id/dialogSubirFoto" />
     </fragment>
     <fragment
         android:id="@+id/pedidoActual"
@@ -49,8 +49,8 @@
         android:name="com.example.farmaplus.client.MisDirecciones"
         android:label="Mis direcciones" >
         <action
-            android:id="@+id/action_misDirecciones_to_bottomDialog"
-            app:destination="@id/bottomDialog_nuevaDireccion" />
+            android:id="@+id/action_misDirecciones_to_dialogNuevaDireccion"
+            app:destination="@id/dialog_nuevaDireccion" />
     </fragment>
     <fragment
         android:id="@+id/historialPedidos"
@@ -104,19 +104,19 @@
             app:popUpToInclusive="true" />
     </fragment>
     <dialog
-        android:id="@+id/bottomDialog_nuevaDireccion"
+        android:id="@+id/dialog_nuevaDireccion"
         android:name="com.example.farmaplus.client.BottomDialogNuevaDireccion"
         android:label="BottomDialog" >
         <action
-            android:id="@+id/action_bottomDialog_to_misDirecciones"
+            android:id="@+id/action_dialogNuevaDireccion_to_misDirecciones"
             app:destination="@id/misDirecciones" />
     </dialog>
     <dialog
-        android:id="@+id/bottomDialogSleccionaSucursal"
+        android:id="@+id/dialogSleccionaSucursal"
         android:name="com.example.farmaplus.client.BottomDialogSleccionaSucursal"
         android:label="BottomDialogSleccionaSucursal" >
         <action
-            android:id="@+id/action_bottomDialogSleccionaSucursal_to_nuevoPedido"
+            android:id="@+id/action_dialogSleccionaSucursal_to_nuevoPedido"
             app:destination="@id/nuevoPedido" />
         <action
             android:id="@+id/action_bottomDialogSleccionaSucursal_to_principalCliente_fragment2"
@@ -125,7 +125,7 @@
             app:popUpToInclusive="true" />
     </dialog>
     <dialog
-        android:id="@+id/bottomDialogSeleccionaDireccion"
+        android:id="@+id/dialogSeleccionaDireccion"
         android:name="com.example.farmaplus.client.BottomDialogSeleccionaDireccion"
         android:label="BottomDialogSeleccionaDireccion" >
         <action
@@ -136,7 +136,7 @@
             app:destination="@id/principalCliente_fragment" />
     </dialog>
     <dialog
-        android:id="@+id/bottomDialogSubirFoto"
+        android:id="@+id/dialogSubirFoto"
         android:name="com.example.farmaplus.client.BottomDialogSubirFoto"
         android:label="BottomDialogSubirFoto" >
         <action

@@ -35,7 +35,7 @@ public class BottomDialogSleccionaSucursal extends BottomSheetDialogFragment imp
         switch (view.getId()){
             case R.id.button_cancelar:
                 Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
-                        R.id.action_bottomDialogSleccionaSucursal_to_nuevoPedido);
+                        R.id.action_dialogSleccionaSucursal_to_nuevoPedido);
                 break;
             case R.id.button_aceptar:
                 Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(

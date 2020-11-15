@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.farmaplus.R;
@@ -46,15 +45,15 @@ public class NuevoPedido extends Fragment implements View.OnClickListener {
                 int selectedRadioButtonID = radioGroup_tipoEnvio.getCheckedRadioButtonId();
                 if(selectedRadioButtonID == R.id.radioButton_sucursal){
                     Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
-                            R.id.action_nuevoPedido_to_bottomDialogSleccionaSucursal);
+                            R.id.action_nuevoPedido_to_dialogSleccionaSucursal);
                 } else {
                     Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
-                            R.id.action_nuevoPedido_to_bottomDialogSeleccionaDireccion);
+                            R.id.action_nuevoPedido_to_dialogSeleccionaDireccion);
                 }
                 break;
             case R.id.button_subirReceta:
                 Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
-                        R.id.action_nuevoPedido_to_bottomDialogSubirFoto);
+                        R.id.action_nuevoPedido_to_dialogSubirFoto);
                 break;
         }
     }

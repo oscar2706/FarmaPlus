@@ -1,6 +1,5 @@
 package com.example.farmaplus.client;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -35,7 +34,7 @@ public class MisDirecciones extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
-                        R.id.action_misDirecciones_to_bottomDialog);
+                        R.id.action_misDirecciones_to_dialogNuevaDireccion);
             }
         });
         return view;
