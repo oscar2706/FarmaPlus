@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/login_fragment">
+    app:startDestination="@id/principalCliente_fragment">
     <fragment
         android:id="@+id/login_fragment"
         android:name="com.example.farmaplus.Login"
@@ -23,7 +23,17 @@
         android:id="@+id/nuevoPedido"
         android:name="com.example.farmaplus.client.NuevoPedido"
         android:label="Nuevo pedido"
-        tools:layout="@layout/fragment_nuevo_pedido" />
+        tools:layout="@layout/fragment_nuevo_pedido" >
+        <action
+            android:id="@+id/action_nuevoPedido_to_bottomDialogSleccionaSucursal"
+            app:destination="@id/bottomDialogSleccionaSucursal" />
+        <action
+            android:id="@+id/action_nuevoPedido_to_bottomDialogSeleccionaDireccion"
+            app:destination="@id/bottomDialogSeleccionaDireccion" />
+        <action
+            android:id="@+id/action_nuevoPedido_to_bottomDialogSubirFoto"
+            app:destination="@id/bottomDialogSubirFoto" />
+    </fragment>
     <fragment
         android:id="@+id/pedidoActual"
         android:name="com.example.farmaplus.client.PedidoActual"
@@ -37,7 +47,11 @@
     <fragment
         android:id="@+id/misDirecciones"
         android:name="com.example.farmaplus.client.MisDirecciones"
-        android:label="Mis direcciones" />
+        android:label="Mis direcciones" >
+        <action
+            android:id="@+id/action_misDirecciones_to_bottomDialog"
+            app:destination="@id/bottomDialog_nuevaDireccion" />
+    </fragment>
     <fragment
         android:id="@+id/historialPedidos"
         android:name="com.example.farmaplus.client.HistorialPedidos"
@@ -82,5 +96,51 @@
             app:exitAnim="@anim/push_left_out"
             app:popEnterAnim="@anim/left_to_right"
             app:popExitAnim="@anim/right_to_left" />
+        <action
+            android:id="@+id/action_principalCliente_fragment_to_login_fragment"
+            app:destination="@id/login_fragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/principalCliente_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
+    <dialog
+        android:id="@+id/bottomDialog_nuevaDireccion"
+        android:name="com.example.farmaplus.client.BottomDialogNuevaDireccion"
+        android:label="BottomDialog" >
+        <action
+            android:id="@+id/action_bottomDialog_to_misDirecciones"
+            app:destination="@id/misDirecciones" />
+    </dialog>
+    <dialog
+        android:id="@+id/bottomDialogSleccionaSucursal"
+        android:name="com.example.farmaplus.client.BottomDialogSleccionaSucursal"
+        android:label="BottomDialogSleccionaSucursal" >
+        <action
+            android:id="@+id/action_bottomDialogSleccionaSucursal_to_nuevoPedido"
+            app:destination="@id/nuevoPedido" />
+        <action
+            android:id="@+id/action_bottomDialogSleccionaSucursal_to_principalCliente_fragment2"
+            app:destination="@id/principalCliente_fragment"
+            app:popUpTo="@id/login_fragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/bottomDialogSeleccionaDireccion"
+        android:name="com.example.farmaplus.client.BottomDialogSeleccionaDireccion"
+        android:label="BottomDialogSeleccionaDireccion" >
+        <action
+            android:id="@+id/action_bottomDialogSeleccionaDireccion_to_nuevoPedido"
+            app:destination="@id/nuevoPedido" />
+        <action
+            android:id="@+id/action_bottomDialogSeleccionaDireccion_to_principalCliente_fragment"
+            app:destination="@id/principalCliente_fragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/bottomDialogSubirFoto"
+        android:name="com.example.farmaplus.client.BottomDialogSubirFoto"
+        android:label="BottomDialogSubirFoto" >
+        <action
+            android:id="@+id/action_bottomDialogSubirFoto_to_nuevoPedido"
+            app:destination="@id/nuevoPedido" />
+    </dialog>
 </navigation>

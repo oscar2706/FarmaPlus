@@ -11,15 +11,14 @@ import androidx.annotation.Nullable;
 import com.example.farmaplus.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class BottomDialog extends BottomSheetDialogFragment {
-
-    public BottomDialog() {
+public class BottomDialogSubirFoto extends BottomSheetDialogFragment {
+    public BottomDialogSubirFoto() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.bottom_dialog_new_address, container, false);
+        View view = inflater.inflate(R.layout.bottom_dialog_subir_foto, container, false);
         return view;
     }
 }

@@ -21,7 +21,7 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_subirReceta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -40,12 +40,12 @@
         android:id="@+id/imageView5"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/logo_farma_plus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_login" />
+        app:layout_constraintTop_toBottomOf="@+id/button_subirReceta" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroup_tipoEnvio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -74,21 +74,21 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton_sucursal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Recoger en sucursal" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton_domicilio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Enviar a domicilio" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_realizarPedido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

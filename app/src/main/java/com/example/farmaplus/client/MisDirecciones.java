@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -33,8 +34,8 @@ public class MisDirecciones extends Fragment {
         buttonAddDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BottomDialog bottomDialog_addAddress = new BottomDialog();
-                bottomDialog_addAddress.show(getFragmentManager(), "");
+                Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                        R.id.action_misDirecciones_to_bottomDialog);
             }
         });
         return view;

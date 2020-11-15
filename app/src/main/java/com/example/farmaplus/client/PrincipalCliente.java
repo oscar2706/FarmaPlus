@@ -40,6 +40,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
         //2 Para asignar la navegacion al navController
         navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
+        redirectIfNotLoggedIn();
     }
 
     @Override
@@ -91,7 +92,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
                 navController.navigate(R.id.action_principalCliente_to_direcciones);
                 break;
             case R.id.menu_logout:
-                navController.navigate(R.id.login_fragment);
+                navController.navigate(R.id.action_principalCliente_fragment_to_login_fragment);
                 break;
         }
         return super.onOptionsItemSelected(item);
