@@ -1,4 +1,4 @@
-package com.example.farmaplus.client;
+package com.example.farmaplus;
 
 import android.app.Activity;
 import android.view.Gravity;

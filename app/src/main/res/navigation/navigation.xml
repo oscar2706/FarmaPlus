@@ -53,7 +53,8 @@
     <fragment
         android:id="@+id/misDirecciones"
         android:name="com.example.farmaplus.client.MisDirecciones"
-        android:label="Mis direcciones" >
+        android:label="Mis direcciones"
+        tools:layout="@layout/fragment_mis_direcciones">
         <action
             android:id="@+id/action_misDirecciones_to_dialogNuevaDireccion"
             app:destination="@id/dialog_nuevaDireccion" />
@@ -66,7 +67,8 @@
     <fragment
         android:id="@+id/principalCliente_fragment"
         android:name="com.example.farmaplus.client.PrincipalCliente"
-        android:label="Principal">
+        android:label="Principal"
+        tools:layout="@layout/fragment_principal_cliente">
         <action
             android:id="@+id/action_principalCliente_to_pedidoActual"
             app:destination="@id/pedidoActual"
@@ -112,7 +114,8 @@
     <dialog
         android:id="@+id/dialog_nuevaDireccion"
         android:name="com.example.farmaplus.client.BottomDialogNuevaDireccion"
-        android:label="BottomDialog" >
+        android:label="BottomDialog"
+        tools:layout="@layout/bottom_dialog_nueva_direccion">
         <action
             android:id="@+id/action_dialogNuevaDireccion_to_misDirecciones"
             app:destination="@id/misDirecciones" />
@@ -120,7 +123,8 @@
     <dialog
         android:id="@+id/dialogSleccionaSucursal"
         android:name="com.example.farmaplus.client.BottomDialogSleccionaSucursal"
-        android:label="BottomDialogSleccionaSucursal" >
+        android:label="BottomDialogSleccionaSucursal"
+        tools:layout="@layout/bottom_dialog_pedido_sucursal">
         <action
             android:id="@+id/action_dialogSleccionaSucursal_to_nuevoPedido"
             app:destination="@id/nuevoPedido" />
@@ -133,7 +137,8 @@
     <dialog
         android:id="@+id/dialogSeleccionaDireccion"
         android:name="com.example.farmaplus.client.BottomDialogSeleccionaDireccion"
-        android:label="BottomDialogSeleccionaDireccion" >
+        android:label="BottomDialogSeleccionaDireccion"
+        tools:layout="@layout/bottom_dialog_pedido_domicilio">
         <action
             android:id="@+id/action_bottomDialogSeleccionaDireccion_to_nuevoPedido"
             app:destination="@id/nuevoPedido" />
@@ -144,7 +149,8 @@
     <dialog
         android:id="@+id/dialogSubirFoto"
         android:name="com.example.farmaplus.client.BottomDialogSubirFoto"
-        android:label="BottomDialogSubirFoto" >
+        android:label="BottomDialogSubirFoto"
+        tools:layout="@layout/bottom_dialog_subir_foto">
         <action
             android:id="@+id/action_bottomDialogSubirFoto_to_nuevoPedido"
             app:destination="@id/nuevoPedido" />
@@ -153,7 +159,7 @@
         android:id="@+id/principalRepartidor"
         android:name="com.example.farmaplus.delivery_man.PrincipalRepartidorFragment"
         android:label="Repartidor"
-        tools:layout="@layout/repartidor_principal_repartidor" />
+        tools:layout="@layout/repartidor_principal" />
     <fragment
         android:id="@+id/principalFarmacia"
         android:name="com.example.farmaplus.pharmacy.PrincipalFarmaciaFragment"

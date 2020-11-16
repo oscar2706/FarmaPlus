@@ -32,6 +32,6 @@ public class PrincipalRepartidorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.repartidor_principal_repartidor, container, false);
+        return inflater.inflate(R.layout.repartidor_principal, container, false);
     }
 }
