@@ -199,7 +199,11 @@
         android:id="@+id/pedidoActualRepartidor"
         android:name="com.example.farmaplus.delivery_man.PedidoActualFragment"
         android:label="Pedido en curso"
-        tools:layout="@layout/repartidor_pedido_actual" />
+        tools:layout="@layout/repartidor_pedido_actual" >
+        <action
+            android:id="@+id/action_pedidoActualRepartidor_to_bottomDialogConfirmaEntrega"
+            app:destination="@id/dialogConfirmaEntrega" />
+    </fragment>
     <fragment
         android:id="@+id/pedidosPendientesRepartidor"
         android:name="com.example.farmaplus.delivery_man.PedidosPendientesFragment"
@@ -210,4 +214,9 @@
         android:name="com.example.farmaplus.delivery_man.HistorialPedidosFragment"
         android:label="Historial de pedidos"
         tools:layout="@layout/repartidor_historial_pedidos" />
+    <dialog
+        android:id="@+id/dialogConfirmaEntrega"
+        android:name="com.example.farmaplus.delivery_man.BottomDialogConfirmaEntrega"
+        android:label="BottomDialogConfirmaEntrega"
+        tools:layout="@layout/bottom_dialog_confirma_entrega"/>
 </navigation>
