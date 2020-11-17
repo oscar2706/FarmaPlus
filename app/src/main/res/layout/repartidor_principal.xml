@@ -6,9 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".delivery_man.PrincipalRepartidorFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_PedidoEnCurso"
-        android:layout_width="0dp"
+        android:layout_width="328dp"
         android:layout_height="120dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -18,10 +32,8 @@
         app:cardUseCompatPadding="false"
         app:layout_constraintBottom_toTopOf="@+id/cardView_PedidosPendientes"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintTop_toBottomOf="@+id/textView24">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -56,9 +68,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_PedidosPendientes"
-        android:layout_width="0dp"
+        android:layout_width="328dp"
         android:layout_height="120dp"
-        android:layout_marginTop="32dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:padding="10dp"
@@ -67,7 +78,6 @@
         app:cardUseCompatPadding="false"
         app:layout_constraintBottom_toTopOf="@+id/cardView_HistoialPedidos"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
         app:layout_constraintTop_toBottomOf="@+id/cardView_PedidoEnCurso">
 
@@ -106,9 +116,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_HistoialPedidos"
-        android:layout_width="0dp"
+        android:layout_width="328dp"
         android:layout_height="120dp"
-        android:layout_marginTop="32dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:padding="10dp"
@@ -151,18 +160,26 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline17"
+    <TextView
+        android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        android:layout_marginTop="8dp"
+        android:text="Bienvenido Usuario"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline17"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_avatar" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+    <ImageView
+        android:id="@+id/imageView_avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_male_avatar"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline17"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

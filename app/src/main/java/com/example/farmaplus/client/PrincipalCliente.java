@@ -82,7 +82,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.toolbar_menu, menu);
+        inflater.inflate(R.menu.menu_cliente, menu);
         super.onCreateOptionsMenu(menu,inflater);
     }
 
