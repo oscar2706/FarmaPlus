@@ -24,11 +24,12 @@ public class LogginHandler {
         }
     }
 
-    public static void setLoggedIn(Activity activity, Boolean logged, UserType userType) {
+    public static void setLoggedIn(Activity activity, Boolean logged, UserType userType, String id) {
         SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isLoggedIn", logged);
         editor.putString("userType", userType.toString());
+        editor.putString("idUser", id);
         editor.apply();
     }
 }

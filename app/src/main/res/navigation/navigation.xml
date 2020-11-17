@@ -86,7 +86,19 @@
             app:exitAnim="@anim/push_left_out"
             app:popEnterAnim="@anim/left_to_right"
             app:popExitAnim="@anim/right_to_left" />
+        <action
+            android:id="@+id/action_principalCliente_fragment_to_mapsFragment"
+            app:destination="@id/mapsFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
     </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.farmaplus.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
     <dialog
         android:id="@+id/bottomDialog"
         android:name="com.example.farmaplus.client.BottomDialog"

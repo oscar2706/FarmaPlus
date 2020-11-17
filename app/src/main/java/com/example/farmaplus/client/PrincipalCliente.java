@@ -1,5 +1,8 @@
 package com.example.farmaplus.client;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,13 +25,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.farmaplus.LogginHandler;
 import com.example.farmaplus.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
 
 public class PrincipalCliente extends Fragment implements View.OnClickListener {
     Button button_NuevoPedido;
     NavController navController; //1 NavController para poder navegar
+
+    Fragment np;
+
+    //CONSTANTES DE ACCION
+    public static final int CODE_CAMERA = 21;
+    public static final int CODE_GALLERY = 22;
+
+    public static String idUser;
+    public static boolean enCurso = false;
 
     public PrincipalCliente() {
     }
@@ -40,6 +60,18 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
         //2 Para asignar la navegacion al navController
         navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
+
+        np = new NuevoPedido();
+
+        validaUser();
+        revisarPedidoEnCurso();
+    }
+
+    private void validaUser() {
+        SharedPreferences sp = getActivity().getPreferences(Context.MODE_PRIVATE);
+        String correo = sp.getString("idUser", "na");
+        idUser = correo;
+        System.out.println("id User: "+idUser);
     }
 
     @Override
@@ -56,7 +88,58 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.cardView_Historial).setOnClickListener(this);
         view.findViewById(R.id.cardView_Medicamentos).setOnClickListener(this);
         view.findViewById(R.id.cardView_PedidoActual).setOnClickListener(this);
+        view.findViewById(R.id.cardView_Sucursales).setOnClickListener(this);
+
         return view;
+    }
+
+    private void revisarPedidoEnCurso() {
+        final FirebaseDatabase database =  FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("PEDIDO");
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Pedido pedido = snapshot.getValue(Pedido.class);
+
+                pedido.setId(snapshot.getKey());
+
+                if(pedido.getUser().equals(PrincipalCliente.idUser)){
+                    System.out.println("Pedidos: "+pedido.getEnCurso());
+                    if(pedido.getEnCurso().equals("true")){
+                         enCurso = true;
+                       /* System.out.println("Vista");
+                         System.out.println(getView()); */
+                         if(getView() != null) {
+                             navController.navigate(R.id.action_principalCliente_to_pedidoActual);
+                           //  System.out.println("Esoty en la vista");
+                         }
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
@@ -64,7 +147,11 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.button_NuevoPedido:
                 //3 Método para navegar a otro fragmento (el action se puede ver en navigation.xml)
-                navController.navigate(R.id.action_principalCliente_to_nuevoPedido);
+                if(enCurso == true){
+                    Toast.makeText(getActivity(), "Tienes un pedido en curso", Toast.LENGTH_SHORT).show();
+                }else {
+                    navController.navigate(R.id.action_principalCliente_to_nuevoPedido);
+                }
                 break;
             case R.id.cardView_PedidoActual:
                 navController.navigate(R.id.action_principalCliente_to_pedidoActual);
@@ -74,6 +161,9 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
                 break;
             case R.id.cardView_Medicamentos:
                 navController.navigate(R.id.action_principalCliente_to_medicamentos);
+                break;
+            case R.id.cardView_Sucursales:
+                navController.navigate(R.id.action_principalCliente_fragment_to_mapsFragment);
                 break;
         }
     }
@@ -91,6 +181,8 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
                 navController.navigate(R.id.action_principalCliente_to_direcciones);
                 break;
             case R.id.menu_logout:
+                enCurso = false;
+                DireccionService.vaciarLista();
                 navController.navigate(R.id.login_fragment);
                 break;
         }
@@ -102,6 +194,22 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
         if(!LogginHandler.isLoggedIn(getActivity())){
             NavController navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
             navController.navigate(R.id.login_fragment) ;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case CODE_GALLERY:
+                np.onActivityResult(requestCode, resultCode, data);
+                break;
+
+            case CODE_CAMERA:
+                np.onActivityResult(requestCode, resultCode, data);
+                break;
+
         }
     }
 }
