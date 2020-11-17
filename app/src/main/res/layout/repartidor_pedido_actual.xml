@@ -106,7 +106,7 @@
         android:id="@+id/button_entregaPedido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:drawableLeft="@drawable/ic_check"
         android:paddingHorizontal="65dp"
         android:text="Entregar pedido"
