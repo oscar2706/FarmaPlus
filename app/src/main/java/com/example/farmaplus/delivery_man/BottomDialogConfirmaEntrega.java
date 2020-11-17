@@ -8,7 +8,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.Navigation;
 
+import com.example.farmaplus.CustomToast;
 import com.example.farmaplus.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -32,9 +34,12 @@ public class BottomDialogConfirmaEntrega extends BottomSheetDialogFragment imple
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.buttonAceptar:
                 dismiss();
+                Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                        R.id.action_dialogConfirmaEntrega_to_principalRepartidor);
+                CustomToast.showOkToastRepartidor(getActivity(), "Pedido entregado");
                 break;
             case R.id.buttonCancelar:
                 dismiss();

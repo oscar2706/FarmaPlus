@@ -218,5 +218,9 @@
         android:id="@+id/dialogConfirmaEntrega"
         android:name="com.example.farmaplus.delivery_man.BottomDialogConfirmaEntrega"
         android:label="BottomDialogConfirmaEntrega"
-        tools:layout="@layout/bottom_dialog_confirma_entrega"/>
+        tools:layout="@layout/bottom_dialog_confirma_entrega">
+        <action
+            android:id="@+id/action_dialogConfirmaEntrega_to_principalRepartidor"
+            app:destination="@id/principalRepartidor" />
+    </dialog>
 </navigation>
