@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "152320569217",
+    "firebase_url": "https://farmaplus-60aae.firebaseio.com",
+    "project_id": "farmaplus-60aae",
+    "storage_bucket": "farmaplus-60aae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152320569217:android:b0868ef1149a2c3f194280",
+        "android_client_info": {
+          "package_name": "com.example.farmaplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152320569217-sl1cn116sstdrcv06t3iq5fu2ipqfmvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPwVdlZYgB_rG7haeUPQO3OgktEjjNrdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152320569217-sl1cn116sstdrcv06t3iq5fu2ipqfmvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
