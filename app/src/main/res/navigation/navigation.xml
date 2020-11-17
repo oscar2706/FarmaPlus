@@ -159,10 +159,35 @@
         android:id="@+id/principalRepartidor"
         android:name="com.example.farmaplus.delivery_man.PrincipalRepartidorFragment"
         android:label="Repartidor"
-        tools:layout="@layout/repartidor_principal" />
+        tools:layout="@layout/repartidor_principal" >
+        <action
+            android:id="@+id/action_principalRepartidor_to_pedidoActualRepartidor"
+            app:destination="@id/pedidoActualRepartidor" />
+        <action
+            android:id="@+id/action_principalRepartidor_to_pedidosPendientesRepartidor"
+            app:destination="@id/pedidosPendientesRepartidor" />
+        <action
+            android:id="@+id/action_principalRepartidor_to_historialPedidosRepartidor"
+            app:destination="@id/historialPedidosRepartidor" />
+    </fragment>
     <fragment
         android:id="@+id/principalFarmacia"
         android:name="com.example.farmaplus.pharmacy.PrincipalFarmaciaFragment"
         android:label="Farmacia"
         tools:layout="@layout/farmacia_principal_farmacia" />
+    <fragment
+        android:id="@+id/pedidoActualRepartidor"
+        android:name="com.example.farmaplus.delivery_man.PedidoActualFragment"
+        android:label="Pedido en curso"
+        tools:layout="@layout/repartidor_pedido_actual" />
+    <fragment
+        android:id="@+id/pedidosPendientesRepartidor"
+        android:name="com.example.farmaplus.delivery_man.PedidosPendientesFragment"
+        android:label="Pedidos pendientes"
+        tools:layout="@layout/repartidor_pedidos_pendientes" />
+    <fragment
+        android:id="@+id/historialPedidosRepartidor"
+        android:name="com.example.farmaplus.delivery_man.HistorialPedidosFragment"
+        android:label="Historial de pedidos"
+        tools:layout="@layout/repartidor_historial_pedidos" />
 </navigation>
