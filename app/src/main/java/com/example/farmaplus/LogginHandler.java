@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+
 public class LogginHandler {
-    public enum UserType{
-        CLIENTE, FARMACIA, REPARTIDOR
-    }
 
     public static Boolean isLoggedIn(Activity activity) {
         SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);

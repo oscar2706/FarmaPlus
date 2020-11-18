@@ -57,10 +57,6 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
-        //2 Para asignar la navegacion al navController
-        navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
-
         np = new NuevoPedido();
 
         validaUser();
@@ -77,6 +73,8 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+        Navigation.setViewNavController(view, navController);
     }
 
     @Override
@@ -170,7 +168,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.toolbar_menu, menu);
+        inflater.inflate(R.menu.menu_cliente, menu);
         super.onCreateOptionsMenu(menu,inflater);
     }
 
@@ -183,7 +181,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
             case R.id.menu_logout:
                 enCurso = false;
                 DireccionService.vaciarLista();
-                navController.navigate(R.id.login_fragment);
+                navController.navigate(R.id.action_principalCliente_fragment_to_login_fragment);
                 break;
         }
         return super.onOptionsItemSelected(item);

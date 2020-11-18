@@ -1,11 +1,11 @@
 package com.example.farmaplus.client;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,8 +60,8 @@ public class MisDirecciones extends Fragment{
         buttonAddDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController = Navigation.findNavController(getActivity(), R.id.fragment_navigation);
-                navController.navigate(R.id.action_misDirecciones_to_bottomDialog);
+                Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                        R.id.action_misDirecciones_to_dialogNuevaDireccion);
             }
         });
         return view;

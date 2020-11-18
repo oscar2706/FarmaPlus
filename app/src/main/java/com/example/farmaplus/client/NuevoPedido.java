@@ -7,12 +7,18 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -23,6 +29,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
+import android.widget.Button;
+import android.widget.RadioGroup;
 
 import com.example.farmaplus.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -44,8 +52,9 @@ import java.util.Date;
 public class NuevoPedido extends Fragment {
     ImageView img;
     EditText txtCom;
+    RadioGroup radioGroup_tipoEnvio;
     RadioButton radDomicilio, radSucursal;
-    Button btn_camara, enviar, btn_galeria;
+    Button btn_camara, enviar, btn_galeria, btn_subirFoto;
 
     DatabaseReference reference;
     long maxId = 0;
@@ -69,10 +78,35 @@ public class NuevoPedido extends Fragment {
 
         img = view.findViewById(R.id.imageView5);
         txtCom = view.findViewById(R.id.editTextTextMultiLine);
-        radSucursal = view.findViewById(R.id.radioButton);
-        radDomicilio = view.findViewById(R.id.radioButton2);
-        btn_camara = view.findViewById(R.id.button_login);
-        btn_galeria = view.findViewById(R.id.button_galeria);
+        radSucursal = view.findViewById(R.id.radioButton_sucursal);
+        radDomicilio = view.findViewById(R.id.radioButton_domicilio);
+
+        //btn_camara = view.findViewById(R.id.button_login);
+        //btn_galeria = view.findViewById(R.id.button_galeria);
+        enviar = view.findViewById(R.id.button_enviar);
+        btn_subirFoto = view.findViewById(R.id.button_subirReceta);
+
+        btn_subirFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.button_enviar:
+                        int selectedRadioButtonID = radioGroup_tipoEnvio.getCheckedRadioButtonId();
+                        if(selectedRadioButtonID == R.id.radioButton_sucursal){
+                            Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                                    R.id.action_nuevoPedido_to_dialogSleccionaSucursal);
+                        } else {
+                            Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                                    R.id.action_nuevoPedido_to_dialogSeleccionaDireccion);
+                        }
+                        break;
+                    case R.id.button_subirReceta:
+                        Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                                R.id.action_nuevoPedido_to_dialogSubirFoto);
+                        break;
+                }
+            }
+        });
         enviar = view.findViewById(R.id.button_enviar);
 
         progressDialog = new ProgressDialog(view.getContext());
@@ -97,7 +131,7 @@ public class NuevoPedido extends Fragment {
             }
         });
 
-        btn_camara.setOnClickListener(new View.OnClickListener() {
+        /*btn_camara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -117,7 +151,7 @@ public class NuevoPedido extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, PrincipalCliente.CODE_GALLERY);
             }
-        });
+        });*/
 
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override

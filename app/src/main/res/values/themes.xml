@@ -1,9 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.FarmaPlus" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorOnPrimary">@color/whiteBackground</item>
-        <item name="colorOnSurface">@color/cardDark</item>
-
         <!-- Primary brand color. -->
         <item name="fontFamily">@font/montserrat</item>
         <item name="colorPrimary">@color/blue</item>
@@ -12,10 +9,24 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/yellow</item>
         <item name="colorSecondaryVariant">@color/yellowVariant</item>
+
+        <!-- Text color-->
+        <item name="colorOnPrimary">@color/whiteBackground</item>
         <item name="colorOnSecondary">@color/onWhiteSurface</item>
+        <item name="colorOnSurface">@color/cardDark</item>
+
+        <!-- Color control iconos actionbar, vector asset -->
+        <item name="colorControlNormal">@color/controlLight</item>
+
+        <!-- Ilustation colors -->
+        <item name="colorIlustrationBackground">#FBFBFB</item>
+        <item name="colorIlustrationSecondary">#e6e6e6</item>
+        <item name="colorIlustrationSkin">#FFB9B8</item>
+        <item name="colorIlustrationPrimary">#0077B3</item>
+        <item name="colorIlustrationDark">#3F3C56</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blueVariant</item>
         <item name="toolbarStyle">@style/my_Toolbar</item>
     </style>
 

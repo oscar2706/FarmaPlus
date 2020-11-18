@@ -13,12 +13,12 @@
         <item name="colorSecondaryVariant">@color/yellowVariant</item>
 
         <!-- Text colors -->
-        <item name="colorOnPrimary">@color/whiteBackground</item>
+        <item name="colorOnPrimary">@color/controlLight</item>
         <item name="colorOnSurface">@color/grey</item>
-        <item name="colorOnSecondary">@color/whiteBackground</item>
+        <item name="colorOnSecondary">@color/controlLight</item>
 
         <!-- Background colors-->
-        <item name="backgroundColor">@color/whiteBackground</item>
+        <item name="backgroundColor">@color/controlLight</item>
         <item name="colorSurface">@color/cardDark</item>
         <item name="cardViewStyle">@style/YourCardView</item>
 
@@ -26,6 +26,15 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="actionBarStyle">@style/ActionBarStyle</item>
         <item name="toolbarStyle">@style/my_Toolbar</item>
+
+        <!-- Ilustation colors -->
+        <item name="colorIlustrationBackground">#202020</item>
+        <item name="colorIlustrationSecondary">#4B4B4B</item>
+        <item name="colorIlustrationSkin">#FFE0CD</item>
+        <item name="colorIlustrationPrimary">#006DA5</item>
+        <item name="colorIlustrationDark">#41576C</item>
+        <!--<item name="colorIlustrationDark">#A86C37</item>-->
+
     </style>
 
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar">

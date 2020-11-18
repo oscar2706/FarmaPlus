@@ -1,6 +1,5 @@
 package com.example.farmaplus.client;
 
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -31,7 +30,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class BottomDialog extends BottomSheetDialogFragment implements GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener{
+public class BottomDialogNuevaDireccion extends BottomSheetDialogFragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     EditText nombreDireccion;
     TextView txt_direccion;
     String lat, lon, direccionInsert;
@@ -43,20 +42,21 @@ public class BottomDialog extends BottomSheetDialogFragment implements GoogleApi
 
     DatabaseReference reference;
 
-    public BottomDialog() {
+
+    public BottomDialogNuevaDireccion() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.bottom_dialog_new_address, container, false);
+        View view = inflater.inflate(R.layout.bottom_dialog_nueva_direccion, container, false);
         Button btn_ubicacion = view.findViewById(R.id.button_ubicacionActual);
-        Button btn_aceptar = view.findViewById(R.id.button4);
-        Button btn_cancelar = view.findViewById(R.id.button5);
+        Button btn_aceptar = view.findViewById(R.id.button_aceptar);
+        Button btn_cancelar = view.findViewById(R.id.button_cancelar);
         nombreDireccion = view.findViewById(R.id.edit_nombreDIreccion);
         txt_direccion = view.findViewById(R.id.textviewDirecc);
 
-        FirebaseDatabase database =  FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         reference = database.getReference("DIRECCION");
 
         googleApiClient = new GoogleApiClient.Builder(getContext())
@@ -66,6 +66,9 @@ public class BottomDialog extends BottomSheetDialogFragment implements GoogleApi
                 .build();
 
         googleApiClient.connect();
+        btn_aceptar = view.findViewById(R.id.buttonAceptar);
+        btn_cancelar = view.findViewById(R.id.buttonCancelar);
+        btn_ubicacion = view.findViewById(R.id.button_ubicacionActual);
 
         btn_ubicacion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +82,7 @@ public class BottomDialog extends BottomSheetDialogFragment implements GoogleApi
                     //Obtenemos la Longitut/Latitud
                     latLng = new LatLng(location.getLatitude(), location.getLongitude());
                 }
-                geocoder = new Geocoder(getContext(),   Locale.getDefault());
+                geocoder = new Geocoder(getContext(), Locale.getDefault());
                 String city = null;
 
                 try {
@@ -87,7 +90,7 @@ public class BottomDialog extends BottomSheetDialogFragment implements GoogleApi
                     direccion = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
                     city = direccion.get(0).getAdminArea();
                     String address = direccion.get(0).getAddressLine(0);
-                   // Toast.makeText(getContext(), address, Toast.LENGTH_LONG).show();
+                    // Toast.makeText(getContext(), address, Toast.LENGTH_LONG).show();
                     lat = String.valueOf(latLng.latitude);
                     lon = String.valueOf(latLng.longitude);
                     direccionInsert = address;

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="colorIlustrationBackground" format="color"/>
+    <attr name="colorIlustrationSecondary" format="color"/>
+    <attr name="colorIlustrationSkin" format="color"/>
+    <attr name="colorIlustrationPrimary" format="color"/>
+    <attr name="colorIlustrationDark" format="color"/>
+
     <color name="blue">#0083C2</color>
     <color name="blueVariant">#1350A4</color>
     <color name="blueLight">#49BBE9</color>
@@ -15,4 +21,6 @@
     <color name="onWhiteSurface">#F5F5F5</color>
     <color name="disabled">#B8B8B8</color>
     <color name="grey">#DBDBDB</color>
+    <color name="controlLight">#F2F2F2</color>
+    <color name="controlDark">#E5E5E5</color>
 </resources>
