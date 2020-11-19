@@ -68,9 +68,14 @@
     <TextView
         android:id="@+id/textView7"
         style="@style/Widget.MaterialComponents.TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="259dp"
+        android:layout_height="50dp"
         android:layout_marginTop="5dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+
+        android:autoSizeTextType="uniform"
         android:text="Esta es la dirección completa"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.496"
@@ -91,12 +96,14 @@
     <TextView
         android:id="@+id/textView6"
         style="@style/Widget.MaterialComponents.TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="271dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
         android:text="Dirección de entrega"
+        android:gravity="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -129,10 +136,11 @@
         style="@style/Widget.MaterialComponents.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="Repartidor"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 

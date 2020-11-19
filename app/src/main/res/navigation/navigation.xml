@@ -182,6 +182,9 @@
         <action
             android:id="@+id/action_bottomDialogSubirFoto_to_nuevoPedido"
             app:destination="@id/nuevoPedido" />
+        <action
+            android:id="@+id/action_dialogSubirFoto_to_nuevoPedido"
+            app:destination="@id/nuevoPedido" />
     </dialog>
     <fragment
         android:id="@+id/principalRepartidor"

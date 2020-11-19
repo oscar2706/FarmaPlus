@@ -155,15 +155,20 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                         //   Log.e("info", "================>"+p.getComentarios());
                         Toast.makeText(getActivity(), "Hola "+p.getCorreo(), Toast.LENGTH_SHORT).show();
                         LogginHandler.setLoggedIn(getActivity(), true, UserType.CLIENTE, p.getIdUser());
-                        NavController navController = Navigation.findNavController(getView());
+                        NavController navController;
+                      //  navController.navigate(R.id.action_login_to_principalCliente);
                         switch (spinner_userType.getSelectedItem().toString()){
                             case "Repartidor":
+                                navController = Navigation.findNavController(getView());
                                 navController.navigate(R.id.action_login_fragment_to_principalRepartidorFragment);
                                 break;
                             case "Cliente":
+                                navController = Navigation.findNavController(getView());
+                             //   navController.navigate(R.id.action_login_to_principalCliente);
                                 navController.navigate(R.id.action_login_to_principalCliente);
                                 break;
                             case "Farmacia":
+                                navController = Navigation.findNavController(getView());
                                 navController.navigate(R.id.action_login_fragment_to_principalFarmaciaFragment);
                                 break;
                         }

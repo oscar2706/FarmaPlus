@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="135dp"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:id="@+id/card_dir">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

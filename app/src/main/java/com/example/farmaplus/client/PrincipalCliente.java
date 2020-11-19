@@ -61,7 +61,52 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
 
         validaUser();
         revisarPedidoEnCurso();
+
+     //   insertaSucursales();
     }
+
+    private void insertaSucursales() {
+        Sucursal sucursal = new Sucursal();
+        FirebaseDatabase database =  FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("SUCURSAL");
+
+        sucursal.setDireccionSuc("Avenida Filomeno Escamilla, 72320 Puebla de Zaragoza, PUE, México");
+        sucursal.setLatitud("19.057056642500726");
+        sucursal.setLongitud("-98.1444130887897");
+        sucursal.setNombreSuc("Sucursal Amalucan");
+        sucursal.setEstado("Puebla");
+        reference.push().setValue(sucursal);
+
+
+        sucursal.setDireccionSuc("Parque Puebla, Circuito Monte Líbano, 72220 Puebla de Zaragoza, PUE, México");
+        sucursal.setLatitud("19.0694212");
+        sucursal.setLongitud("-98.1725397");
+        sucursal.setNombreSuc("Sucursal Parque Puebla");
+        sucursal.setEstado("Puebla");
+        reference.push().setValue(sucursal);
+
+        sucursal.setDireccionSuc("Fuente de San Miguel, Avenida 3 Oriente, Centro Histórico de Puebla, 72000 Puebla de Zaragoza, PUE, México");
+        sucursal.setLatitud("19.04321088858059");
+        sucursal.setLongitud("-98.1978148546105");
+        sucursal.setNombreSuc("Sucursal Zocalo");
+        sucursal.setEstado("Puebla");
+        reference.push().setValue(sucursal);
+
+        sucursal.setDireccionSuc("Calzada Ignacio Zaragoza, Centro Histórico de Puebla, 72290 Puebla de Zaragoza, PUE, México");
+        sucursal.setLatitud("19.0601700871197");
+        sucursal.setLongitud("-98.18609852547395");
+        sucursal.setNombreSuc("Sucursal Loreto");
+        sucursal.setEstado("Puebla");
+        reference.push().setValue(sucursal);
+
+        sucursal.setDireccionSuc("Paseo San Francisco, De los Pescaditos, Centro Histórico de Puebla, 72290 Puebla de Zaragoza, PUE, México");
+        sucursal.setLatitud("19.043199645106554");
+        sucursal.setLongitud("-98.19090101037271");
+        sucursal.setNombreSuc("Sucursal San Fransisco");
+        sucursal.setEstado("Puebla");
+        reference.push().setValue(sucursal);
+    }
+
 
     private void validaUser() {
         SharedPreferences sp = getActivity().getPreferences(Context.MODE_PRIVATE);

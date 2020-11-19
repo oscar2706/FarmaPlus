@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -81,25 +82,38 @@ public class NuevoPedido extends Fragment {
         radSucursal = view.findViewById(R.id.radioButton_sucursal);
         radDomicilio = view.findViewById(R.id.radioButton_domicilio);
 
+
         //btn_camara = view.findViewById(R.id.button_login);
         //btn_galeria = view.findViewById(R.id.button_galeria);
         enviar = view.findViewById(R.id.button_enviar);
         btn_subirFoto = view.findViewById(R.id.button_subirReceta);
 
+        try {
+            switch(getArguments().getInt("codigo"))
+            {
+                case 0 :
+                    Uri fot = Uri.parse(getArguments().getString("receta"));
+                    uri_imagen = fot;
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri_imagen);
+                    img.setImageBitmap(bitmap);
+                    break;
+                case 1:
+                    String tv = getArguments().getString("receta");
+                    uri_imagen = Uri.parse(getArguments().getString("uri"));
+                    Bitmap bitmap2 = BitmapFactory.decodeFile(tv);
+                    img.setImageBitmap(bitmap2);
+                    break;
+            }
+          //  Toast.makeText(getContext(), tv, Toast.LENGTH_LONG).show();
+        }catch (Exception e)
+        {
+
+        }
+
         btn_subirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.button_enviar:
-                        int selectedRadioButtonID = radioGroup_tipoEnvio.getCheckedRadioButtonId();
-                        if(selectedRadioButtonID == R.id.radioButton_sucursal){
-                            Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
-                                    R.id.action_nuevoPedido_to_dialogSleccionaSucursal);
-                        } else {
-                            Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
-                                    R.id.action_nuevoPedido_to_dialogSeleccionaDireccion);
-                        }
-                        break;
                     case R.id.button_subirReceta:
                         Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
                                 R.id.action_nuevoPedido_to_dialogSubirFoto);
@@ -156,6 +170,39 @@ public class NuevoPedido extends Fragment {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR);
+                int mMonth = c.get(Calendar.MONTH);
+                int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+                String fecha = String.valueOf(mDay)+"/"+String.valueOf(mMonth+1)+"/"+String.valueOf(mYear);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("com", txtCom.getText().toString());
+                bundle.putString("enCurso", "true");
+                bundle.putString("estadoPedido", "Enviado");
+                bundle.putString("fechaPedido", fecha);
+                bundle.putString("repartidor", "Sin Asignar");
+                bundle.putString("url", String.valueOf(uri_imagen));
+                bundle.putString("user", PrincipalCliente.idUser);
+
+                if(radDomicilio.isChecked())
+                {
+                    bundle.putString("tipoEntrega", "Domicilio");
+                    Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                            R.id.action_nuevoPedido_to_dialogSeleccionaDireccion, bundle);
+                }
+                else{
+                    bundle.putString("tipoEntrega", "En Sucursal");
+                    Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
+                            R.id.action_nuevoPedido_to_dialogSleccionaSucursal, bundle);
+                }
+            }
+        });
+
+      /*  enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 progressDialog.setMessage("REALIZANDO PEDIDO");
                 progressDialog.show();
                 final Calendar c = Calendar.getInstance();
@@ -204,12 +251,12 @@ public class NuevoPedido extends Fragment {
                     }
                 });
             }
-        });
+        }); */
 
         return view;
     }
 
-    @Override
+  /*  @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -231,5 +278,5 @@ public class NuevoPedido extends Fragment {
                 img.setImageBitmap(bitmap);
                 break;
         }
-    }
+    } */
 }

@@ -83,7 +83,7 @@ public class PedidoActual extends Fragment {
                       //  enCurso = true;
                         txt_id.setText("Id Pedido: "+pedido.getId());
                         txt_com.setText(pedido.getComentarios());
-                        txt_dirección.setText(pedido.getTipoEntrega());
+                        txt_dirección.setText(pedido.getLugarEntrega());
                         txt_estado.setText(pedido.getEstadoPedido());
                         txt_repartidor.setText(pedido.getRepartidor());
                         if(getView() != null) {
