@@ -4,9 +4,10 @@
     <item android:id="@+id/menu_direcciones"
         android:title="Mis direcciones"
         app:showAsAction="never"/>
-    <item android:id="@+id/menu_informacion"
-        android:title="Información"
-        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_informacion"
+        android:title="Sobre nosotros"
+        app:showAsAction="never" />
     <item android:id="@+id/menu_logout"
         android:title="Cerrar sesión"
         app:showAsAction="never"/>

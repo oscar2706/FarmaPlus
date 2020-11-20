@@ -127,8 +127,12 @@
             app:popEnterAnim="@anim/left_to_right"
             app:popExitAnim="@anim/right_to_left" />
         <action
-            android:id="@+id/action_principalCliente_fragment_to_aboutUsFragment"
-            app:destination="@id/aboutUsFragment" />
+            android:id="@+id/action_principalCliente_fragment_to_aboutUs"
+            app:destination="@id/aboutUsFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
@@ -245,6 +249,6 @@
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.example.farmaplus.AboutUsFragment"
-        android:label="fragment_about_us"
-        tools:layout="@layout/fragment_about_us" />
+        android:label="Sobre nosotros"
+        tools:layout="@layout/fragment_about_us"/>
 </navigation>

@@ -7,17 +7,10 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,8 +27,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Calendar;
 
 public class PrincipalCliente extends Fragment implements View.OnClickListener {
     Button button_NuevoPedido;
@@ -222,6 +213,9 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
         switch (item.getItemId()){
             case R.id.menu_direcciones:
                 navController.navigate(R.id.action_principalCliente_to_direcciones);
+                break;
+            case R.id.menu_informacion:
+                navController.navigate(R.id.action_principalCliente_fragment_to_aboutUs);
                 break;
             case R.id.menu_logout:
                 enCurso = false;
