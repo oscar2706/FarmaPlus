@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/login_fragment">
+    app:startDestination="@id/principalCliente_fragment">
     <fragment
         android:id="@+id/login_fragment"
         android:name="com.example.farmaplus.Login"
@@ -137,7 +137,7 @@
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.farmaplus.MapsFragment"
-        android:label="fragment_maps"
+        android:label="Sucursales"
         tools:layout="@layout/fragment_maps" />
     <dialog
         android:id="@+id/dialog_nuevaDireccion"
