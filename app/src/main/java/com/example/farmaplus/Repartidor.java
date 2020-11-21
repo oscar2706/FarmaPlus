@@ -7,6 +7,7 @@ import com.example.farmaplus.client.Pedido;
 public class Repartidor {
     private String IdRepartidor;
     private String nombre;
+    private String apellidos;
     private String usuario;
     private String password;
     private String fechaRegistro;
@@ -15,13 +16,22 @@ public class Repartidor {
     public Repartidor() {
     }
 
-    public Repartidor(String idRepartidor, String nombre, String usuario, String password, String fechaRegistro, String fotoRepartidor) {
+    public Repartidor(String idRepartidor, String nombre, String usuario, String password, String fechaRegistro, String fotoRepartidor, String apellido) {
         IdRepartidor = idRepartidor;
         this.nombre = nombre;
         this.usuario = usuario;
         this.password = password;
         this.fechaRegistro = fechaRegistro;
         this.fotoRepartidor = fotoRepartidor;
+        this.apellidos = apellido;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getIdRepartidor() {
