@@ -16,11 +16,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.farmaplus.R;
+import com.example.farmaplus.Repartidor;
+import com.example.farmaplus.client.Direccion;
+import com.example.farmaplus.client.DireccionService;
+import com.example.farmaplus.client.PrincipalCliente;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class PrincipalRepartidorFragment extends Fragment implements View.OnClickListener {
     NavController navController;
+    public static String idRepartidor;
+     String correo;
+
 
     public PrincipalRepartidorFragment() {
     }
@@ -29,6 +43,11 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        try {
+            correo = getArguments().getString("user");
+            validaRepartidor();
+        }catch (Exception e){}
     }
 
     @Override
@@ -51,6 +70,35 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
         cardView_historialPedidos.setOnClickListener(this);
 
         return view;
+    }
+
+    private void validaRepartidor() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("REPARTIDOR");
+        Query query = reference.orderByChild("usuario").equalTo(correo);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //   Pedido p = snapshot.getValue(Pedido.class);
+                DireccionService.vaciarLista();
+
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    Repartidor rep = ds.getValue(Repartidor.class);
+                    rep.setIdRepartidor(ds.getKey());
+
+                    idRepartidor = rep.getIdRepartidor();
+
+                    //Toast.makeText(getContext(), idRepartidor, Toast.LENGTH_LONG).show();
+                }
+
+                //   rc.getAdapter().notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override

@@ -1,5 +1,8 @@
 package com.example.farmaplus.delivery_man;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,11 +15,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.farmaplus.R;
+import com.example.farmaplus.client.Direccion;
+import com.example.farmaplus.client.Pedido;
+import com.example.farmaplus.client.PedidoService;
+import com.example.farmaplus.client.PrincipalCliente;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class PedidoActualFragment extends Fragment implements View.OnClickListener {
     NavController navController;
+
+    ImageView imgReceta;
+    TextView txt_estado, txt_dirección, txt_repartidor, txt_com, txt_id;
+
+    String direccion, idP;
+    String latitud, longitud;
 
     public PedidoActualFragment() {
     }
@@ -40,16 +68,122 @@ public class PedidoActualFragment extends Fragment implements View.OnClickListen
 
         Button button_entregaPedido = view.findViewById(R.id.button_entregaPedido);
         button_entregaPedido.setOnClickListener(this);
+        Button button_ruta = view.findViewById(R.id.button6);
+        button_ruta.setOnClickListener(this);
 
+        imgReceta = view.findViewById(R.id.imageView_fotoReceta);
+        txt_dirección = view.findViewById(R.id.textView23);
+        txt_com = view.findViewById(R.id.textView22);
+        txt_id = view.findViewById(R.id.textView19);
+
+
+        cargarPedidoEnCurso();
         return view;
+    }
+
+    private void cargarPedidoEnCurso() {
+        final FirebaseDatabase database =  FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("PEDIDO");
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Pedido pedido = snapshot.getValue(Pedido.class);
+
+                pedido.setId(snapshot.getKey());
+
+
+                if(pedido.getIdRepartidor().equals(PrincipalRepartidorFragment.idRepartidor)){
+                    //    System.out.println("Pedidos: "+pedido.getEnCurso());
+                    if(pedido.getEnCurso().equals("true")){
+                        //  enCurso = true;
+                        idP = pedido.getId();
+                        txt_id.setText("Id Pedido: "+pedido.getId());
+                        txt_com.setText(pedido.getComentarios());
+                        direccion = pedido.getLugarEntrega();
+                        txt_dirección.setText(pedido.getLugarEntrega());
+
+                        if(getView() != null) {
+                            Glide.with(getActivity()).load(pedido.getUrl()).into(imgReceta);
+                        }
+
+                        BuscaCoordenadas();
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Pedido pedido = snapshot.getValue(Pedido.class);
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
+        Uri uri = null;
+        Intent intent = null;
+
         switch (view.getId()){
             case R.id.button_entregaPedido:
-                navController.navigate(R.id.action_pedidoActualRepartidor_to_bottomDialogConfirmaEntrega);
+                Bundle bundle = new Bundle();
+                bundle.putString("idP", idP);
+                navController.navigate(R.id.action_pedidoActualRepartidor_to_bottomDialogConfirmaEntrega, bundle);
+                break;
+            case R.id.button6:
+                String direc = "geo:"+latitud+","+longitud+"?z=16&q="+latitud+","+longitud+"(Entrega)";
+             //   String d = "geo:0,0?q="+direccion;
+                uri = Uri.parse(direc);
+                intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
                 break;
         }
+    }
+
+    public void BuscaCoordenadas()
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("DIRECCION");
+        Query query = reference.orderByChild("direccion").equalTo(direccion);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //   Pedido p = snapshot.getValue(Pedido.class);
+
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    Direccion p = ds.getValue(Direccion.class);
+                    p.setIdDom(ds.getKey());
+                    latitud = p.getLatitud();
+                    longitud = p.getLongitud();
+
+                    //   if(p.getUser().equals(PrincipalActivity.user))
+
+                    //     Log.e("info", "================>"+p.getComentarios());
+                    //  Toast.makeText(getActivity(), p.getComentarios()+"-"+p.getEstadoPedido(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

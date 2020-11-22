@@ -11,6 +11,7 @@ public class Pedido {
     private String user;
     private String enCurso;
     private String repartidor;
+    private String idRepartidor;
     private String fechaPedido;
     private String lugarEntrega;
 
@@ -18,7 +19,7 @@ public class Pedido {
 
     }
 
-    public Pedido(String id, String comentarios, String tipoEntrega, String estadoPedido, String url, String encurso, String repartidor, String fecha, String lugarEntrega) {
+    public Pedido(String id, String comentarios, String tipoEntrega, String estadoPedido, String url, String encurso, String repartidor, String fecha, String lugarEntrega, String idRepa) {
         this.id = id;
         this.comentarios = comentarios;
         this.tipoEntrega = tipoEntrega;
@@ -28,6 +29,15 @@ public class Pedido {
         this.repartidor = repartidor;
         this.fechaPedido = fecha;
         this.lugarEntrega = lugarEntrega;
+        this.idRepartidor = idRepa;
+    }
+
+    public String getIdRepartidor() {
+        return idRepartidor;
+    }
+
+    public void setIdRepartidor(String idRepartidor) {
+        this.idRepartidor = idRepartidor;
     }
 
     public String getLugarEntrega() {

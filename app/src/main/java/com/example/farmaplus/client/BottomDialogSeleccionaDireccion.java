@@ -203,6 +203,7 @@ public class BottomDialogSeleccionaDireccion extends BottomSheetDialogFragment i
                         Uri downloadUri = uriTask.getResult();
                         pedido.setUrl(downloadUri.toString());
                         pedido.setLugarEntrega(txt_direc.getText().toString());
+                        pedido.setIdRepartidor("sin asignar");
 
                         //INSERT OBJETO PEDIDO FIREBASE
                         reference.child(String.valueOf(maxId+1)).setValue(pedido);

@@ -192,8 +192,10 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                       //  navController.navigate(R.id.action_login_to_principalCliente);
                         switch (spinner_userType.getSelectedItem().toString()){
                             case "Repartidor":
+                                Bundle bundle = new Bundle();
+                                bundle.putString("user", correo);
                                 navController = Navigation.findNavController(getView());
-                                navController.navigate(R.id.action_login_fragment_to_principalRepartidorFragment);
+                                navController.navigate(R.id.action_login_fragment_to_principalRepartidorFragment, bundle);
                                 break;
                             case "Cliente":
                                 navController = Navigation.findNavController(getView());
