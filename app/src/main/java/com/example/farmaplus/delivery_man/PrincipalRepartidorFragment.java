@@ -36,6 +36,7 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
     public static String idRepartidor;
      String correo;
      TextView txt_user;
+     public static String nombreRep;
 
 
     public PrincipalRepartidorFragment() {
@@ -72,6 +73,10 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
         cardView_historialPedidos.setOnClickListener(this);
         txt_user = view.findViewById(R.id.textView24);
 
+        try {
+            txt_user.setText("Bienvenido "+nombreRep);
+        }catch (Exception e){}
+
         return view;
     }
 
@@ -90,6 +95,7 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
                     rep.setIdRepartidor(ds.getKey());
 
                     idRepartidor = rep.getIdRepartidor();
+                    nombreRep = rep.getNombre();
                    txt_user.setText("Bienvenido "+rep.getNombre());
                     //Toast.makeText(getContext(), idRepartidor, Toast.LENGTH_LONG).show();
                 }

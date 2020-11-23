@@ -52,7 +52,7 @@
         android:layout_width="327dp"
         android:layout_height="32dp"
         android:layout_marginTop="12dp"
-        android:progress="25"
+        android:progress="100"
         android:progressDrawable="@drawable/custom_progress_bar"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintHorizontal_bias="0.0"
