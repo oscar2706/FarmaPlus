@@ -1,5 +1,6 @@
 package com.example.farmaplus.delivery_man;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,10 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.farmaplus.R;
+import com.example.farmaplus.client.DireccionAdapterClic;
+import com.example.farmaplus.client.DireccionService;
 import com.example.farmaplus.client.Pedido;
 import com.example.farmaplus.client.PedidoAdapter;
+import com.example.farmaplus.client.PedidoAdapterClic;
 import com.example.farmaplus.client.PedidoService;
 import com.example.farmaplus.client.PrincipalCliente;
 import com.google.firebase.database.DataSnapshot;
@@ -46,7 +52,34 @@ public class HistorialPedidosFragment extends Fragment {
         lm.setOrientation(RecyclerView.VERTICAL);
         rc.setLayoutManager(lm);
 
-        PedidoAdapter adapter = new PedidoAdapter(PedidoService.pedidos, R.layout.item_pedido, getActivity());
+      //  PedidoAdapter adapter = new PedidoAdapter(PedidoService.pedidos, R.layout.item_pedido, getActivity());
+        PedidoAdapterClic adapter = new PedidoAdapterClic(PedidoService.pedidos, R.layout.item_pedido, getActivity());
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = PedidoService.pedidos.get(rc.getChildAdapterPosition(view)).getId();
+
+                Toast.makeText(getContext(), id, Toast.LENGTH_LONG).show();
+                try {
+                /*    vAnterior.findViewById(R.id.card_dir).setBackgroundColor(Color.parseColor("#ffffff"));
+                    texto =(TextView) vAnterior.findViewById(R.id.txt_direccionItem);
+                    texto.setTextColor(Color.parseColor("#212121"));
+                    texto = (TextView) vAnterior.findViewById(R.id.txt_nombreDirecItem);
+                    texto.setTextColor(Color.parseColor("#212121")); */
+                }catch (Exception e)
+                { }
+            /*    txt_direc.setText( DireccionService.direcciones.get(rc.getChildAdapterPosition(view)).getDireccion());
+                view.findViewById(R.id.card_dir).setBackgroundColor(Color.parseColor("#212121"));
+                texto = (TextView)  view.findViewById(R.id.txt_direccionItem);
+                texto.setTextColor(Color.parseColor("#ffffff"));
+                texto =(TextView)    view.findViewById(R.id.txt_nombreDirecItem);
+                texto.setTextColor(Color.parseColor("#ffffff"));
+
+                vAnterior = view; */
+
+            }
+        });
 
         rc.setAdapter(adapter);
         cargaDatosFire();

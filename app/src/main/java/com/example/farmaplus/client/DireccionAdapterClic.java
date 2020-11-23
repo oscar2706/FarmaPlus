@@ -64,7 +64,6 @@ public class DireccionAdapterClic extends RecyclerView.Adapter<DireccionAdapterC
             super(itemView);
             txtdirec =itemView.findViewById(R.id.txt_nombreDirecItem);
             txtnom =itemView.findViewById(R.id.txt_direccionItem);
-
         }
     }
 }
