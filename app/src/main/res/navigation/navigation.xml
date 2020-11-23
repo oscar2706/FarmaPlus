@@ -71,7 +71,11 @@
         android:id="@+id/historialPedidos"
         android:name="com.example.farmaplus.client.HistorialPedidos"
         android:label="Historial pedidos"
-        tools:layout="@layout/fragment_historial_pedidos" />
+        tools:layout="@layout/fragment_historial_pedidos" >
+        <action
+            android:id="@+id/action_historialPedidos_to_detalle_pedido_cliente"
+            app:destination="@id/detalle_pedido_cliente" />
+    </fragment>
     <fragment
         android:id="@+id/principalCliente_fragment"
         android:name="com.example.farmaplus.client.PrincipalCliente"
@@ -255,4 +259,9 @@
         android:name="com.example.farmaplus.delivery_man.repartidor_detalle_pedido"
         android:label="Detalle Pedido"
         tools:layout="@layout/repartidor_detalle_pedido" />
+    <fragment
+        android:id="@+id/detalle_pedido_cliente"
+        android:name="com.example.farmaplus.detalle_pedido_cliente"
+        android:label="Detalle Pedido"
+        tools:layout="@layout/fragment_detalle_pedido_cliente" />
 </navigation>

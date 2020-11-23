@@ -3,7 +3,10 @@ package com.example.farmaplus.client;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class HistorialPedidos extends Fragment {
     RecyclerView rc;
+    NavController navController;
 
     public HistorialPedidos() {
     }
@@ -33,6 +37,13 @@ public class HistorialPedidos extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+        Navigation.setViewNavController(view, navController);
     }
 
     @Override
@@ -45,8 +56,18 @@ public class HistorialPedidos extends Fragment {
         lm.setOrientation(RecyclerView.VERTICAL);
         rc.setLayoutManager(lm);
 
-        PedidoAdapter adapter = new PedidoAdapter(PedidoService.pedidos, R.layout.item_pedido, getActivity());
+       // PedidoAdapter adapter = new PedidoAdapter(PedidoService.pedidos, R.layout.item_pedido, getActivity());
+        PedidoAdapterClic adapter = new PedidoAdapterClic(PedidoService.pedidos, R.layout.item_pedido, getActivity());
 
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = PedidoService.pedidos.get(rc.getChildAdapterPosition(view)).getId();
+                Bundle bundle = new Bundle();
+                bundle.putString("idP", id);
+                navController.navigate(R.id.action_historialPedidos_to_detalle_pedido_cliente, bundle);
+            }
+        });
         rc.setAdapter(adapter);
         cargaDatosFire();
         return view;
