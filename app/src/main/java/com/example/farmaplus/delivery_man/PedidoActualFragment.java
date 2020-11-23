@@ -2,11 +2,13 @@ package com.example.farmaplus.delivery_man;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -37,6 +39,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
+import static android.Manifest.permission.CALL_PHONE;
+
 public class PedidoActualFragment extends Fragment implements View.OnClickListener {
     NavController navController;
 
@@ -45,6 +49,7 @@ public class PedidoActualFragment extends Fragment implements View.OnClickListen
 
     String direccion, idP;
     String latitud, longitud;
+
 
     public PedidoActualFragment() {
     }
@@ -70,6 +75,8 @@ public class PedidoActualFragment extends Fragment implements View.OnClickListen
         button_entregaPedido.setOnClickListener(this);
         Button button_ruta = view.findViewById(R.id.button6);
         button_ruta.setOnClickListener(this);
+        Button button_llamar = view.findViewById(R.id.btn_llamar);
+        button_llamar.setOnClickListener(this);
 
         imgReceta = view.findViewById(R.id.imageView_fotoReceta);
         txt_dirección = view.findViewById(R.id.textView23);
@@ -153,6 +160,16 @@ public class PedidoActualFragment extends Fragment implements View.OnClickListen
                 uri = Uri.parse(direc);
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
+                break;
+            case R.id.btn_llamar:
+                Intent i = new Intent(Intent.ACTION_CALL);
+                i.setData(Uri.parse("tel:2225790653"));
+                if (ContextCompat.checkSelfPermission(getContext(), CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                    startActivity(i);
+                } else {
+                    requestPermissions(new String[]{CALL_PHONE}, 1);
+                }
+           //     startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:2225790663")));
                 break;
         }
     }
