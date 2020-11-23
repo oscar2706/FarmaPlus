@@ -85,11 +85,13 @@ public class HistorialPedidos extends Fragment {
 
                 for (DataSnapshot ds: snapshot.getChildren()){
                     Pedido p = ds.getValue(Pedido.class);
-                    p.setId(ds.getKey());
-                 //   if(p.getUser().equals(PrincipalActivity.user))
+                    if(p.getEnCurso().equals("false")) {
+                        p.setId(ds.getKey());
+                        //   if(p.getUser().equals(PrincipalActivity.user))
                         PedidoService.addPedido(p);
-                    Log.e("info", "================>"+p.getComentarios());
-                    //  Toast.makeText(getActivity(), p.getComentarios()+"-"+p.getEstadoPedido(), Toast.LENGTH_SHORT).show();
+                        Log.e("info", "================>" + p.getComentarios());
+                        //  Toast.makeText(getActivity(), p.getComentarios()+"-"+p.getEstadoPedido(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 rc.getAdapter().notifyDataSetChanged();
