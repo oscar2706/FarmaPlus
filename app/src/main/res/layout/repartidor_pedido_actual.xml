@@ -84,6 +84,10 @@
         android:layout_height="wrap_content"
         android:text="Calle Sonora, Amp Javier Rojo Gómez, Javier Rojo Gómez, Hgo."
         android:textAlignment="center"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />

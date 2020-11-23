@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.farmaplus.R;
@@ -34,6 +35,7 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
     NavController navController;
     public static String idRepartidor;
      String correo;
+     TextView txt_user;
 
 
     public PrincipalRepartidorFragment() {
@@ -68,6 +70,7 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
         cardView_pedidoEnCurso.setOnClickListener(this);
         cardView_pedidosPendientes.setOnClickListener(this);
         cardView_historialPedidos.setOnClickListener(this);
+        txt_user = view.findViewById(R.id.textView24);
 
         return view;
     }
@@ -87,7 +90,7 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
                     rep.setIdRepartidor(ds.getKey());
 
                     idRepartidor = rep.getIdRepartidor();
-
+                   txt_user.setText("Bienvenido "+rep.getNombre());
                     //Toast.makeText(getContext(), idRepartidor, Toast.LENGTH_LONG).show();
                 }
 

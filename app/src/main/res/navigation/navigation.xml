@@ -129,7 +129,7 @@
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.farmaplus.MapsFragment"
-        android:label="fragment_maps"
+        android:label="Sucursales FarmaPlus"
         tools:layout="@layout/fragment_maps" />
     <dialog
         android:id="@+id/bottomDialog"
@@ -236,7 +236,11 @@
         android:id="@+id/historialPedidosRepartidor"
         android:name="com.example.farmaplus.delivery_man.HistorialPedidosFragment"
         android:label="Historial de pedidos"
-        tools:layout="@layout/repartidor_historial_pedidos" />
+        tools:layout="@layout/repartidor_historial_pedidos" >
+        <action
+            android:id="@+id/action_historialPedidosRepartidor_to_repartidor_detalle_pedido"
+            app:destination="@id/repartidor_detalle_pedido" />
+    </fragment>
     <dialog
         android:id="@+id/dialogConfirmaEntrega"
         android:name="com.example.farmaplus.delivery_man.BottomDialogConfirmaEntrega"
@@ -248,7 +252,7 @@
     </dialog>
     <fragment
         android:id="@+id/repartidor_detalle_pedido"
-        android:name="com.example.farmaplus.repartidor_detalle_pedido"
-        android:label="repartidor_detalle_pedido"
+        android:name="com.example.farmaplus.delivery_man.repartidor_detalle_pedido"
+        android:label="Detalle Pedido"
         tools:layout="@layout/repartidor_detalle_pedido" />
 </navigation>

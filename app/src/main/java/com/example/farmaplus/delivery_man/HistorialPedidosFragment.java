@@ -4,7 +4,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HistorialPedidosFragment extends Fragment {
     RecyclerView rc;
+    NavController navController;
 
     public HistorialPedidosFragment() {
         // Required empty public constructor
@@ -40,6 +44,13 @@ public class HistorialPedidosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+        Navigation.setViewNavController(view, navController);
     }
 
     @Override
@@ -59,7 +70,9 @@ public class HistorialPedidosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String id = PedidoService.pedidos.get(rc.getChildAdapterPosition(view)).getId();
-
+                Bundle bundle = new Bundle();
+                bundle.putString("idP", id);
+                navController.navigate(R.id.action_historialPedidosRepartidor_to_repartidor_detalle_pedido, bundle);
             }
         });
 
