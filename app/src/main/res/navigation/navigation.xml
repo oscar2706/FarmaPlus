@@ -246,4 +246,9 @@
             android:id="@+id/action_dialogConfirmaEntrega_to_principalRepartidor"
             app:destination="@id/principalRepartidor" />
     </dialog>
+    <fragment
+        android:id="@+id/repartidor_detalle_pedido"
+        android:name="com.example.farmaplus.repartidor_detalle_pedido"
+        android:label="repartidor_detalle_pedido"
+        tools:layout="@layout/repartidor_detalle_pedido" />
 </navigation>

@@ -60,24 +60,6 @@ public class HistorialPedidosFragment extends Fragment {
             public void onClick(View view) {
                 String id = PedidoService.pedidos.get(rc.getChildAdapterPosition(view)).getId();
 
-                Toast.makeText(getContext(), id, Toast.LENGTH_LONG).show();
-                try {
-                /*    vAnterior.findViewById(R.id.card_dir).setBackgroundColor(Color.parseColor("#ffffff"));
-                    texto =(TextView) vAnterior.findViewById(R.id.txt_direccionItem);
-                    texto.setTextColor(Color.parseColor("#212121"));
-                    texto = (TextView) vAnterior.findViewById(R.id.txt_nombreDirecItem);
-                    texto.setTextColor(Color.parseColor("#212121")); */
-                }catch (Exception e)
-                { }
-            /*    txt_direc.setText( DireccionService.direcciones.get(rc.getChildAdapterPosition(view)).getDireccion());
-                view.findViewById(R.id.card_dir).setBackgroundColor(Color.parseColor("#212121"));
-                texto = (TextView)  view.findViewById(R.id.txt_direccionItem);
-                texto.setTextColor(Color.parseColor("#ffffff"));
-                texto =(TextView)    view.findViewById(R.id.txt_nombreDirecItem);
-                texto.setTextColor(Color.parseColor("#ffffff"));
-
-                vAnterior = view; */
-
             }
         });
 
