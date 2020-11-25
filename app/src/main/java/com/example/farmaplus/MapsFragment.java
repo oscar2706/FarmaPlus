@@ -29,6 +29,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -104,17 +105,20 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Google
                 mGoogleMap.setMyLocationEnabled(true);
                 getLastLocation();
 
+                mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
+
                 // Código para añadir marcador en el mapa
 
                 //TODO:COLOCAR SUCURSALES DE FORMA DINAMICA
 
                 LatLng bar1 = new LatLng(19.057056642500726,-98.1444130887897);
 
-                mGoogleMap.addMarker(new MarkerOptions().position(bar1).title("Sucursal Amalucan").snippet("Avenida Filomeno Escamilla, 72320 Puebla de Zaragoza, PUE, México"));
+                mGoogleMap.addMarker(new MarkerOptions().position(bar1).title("Sucursal Amalucan").snippet("Avenida Filomeno Escamilla, 72320 Puebla de Zaragoza, PUE, México").icon(BitmapDescriptorFactory.fromResource(R.drawable.farma_plus_logo)));
+
 
                 LatLng bar2 = new LatLng(19.0694212,-98.1725397);
 
-                mGoogleMap.addMarker(new MarkerOptions().position(bar2).title("Sucursal Parque Puebla").snippet("Parque Puebla, Circuito Monte Líbano, 72220 Puebla de Zaragoza, PUE, México"));
+                mGoogleMap.addMarker(new MarkerOptions().position(bar2).title("Sucursal Parque Puebla").snippet("Parque Puebla, Circuito Monte Líbano, 72220 Puebla de Zaragoza, PUE, México").icon(BitmapDescriptorFactory.fromResource(R.drawable.farma_plus_logo)));
 
                 googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                     @Override

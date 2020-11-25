@@ -31,6 +31,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.farmaplus.client.Sucursal;
 import com.example.farmaplus.client.User;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -76,6 +77,38 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                 .build();
 
         googleApiClient.connect();
+        
+      //  insertaRepertidor();
+    }
+
+    private void insertaRepertidor() {
+        Repartidor repartidor = new Repartidor();
+        User user = new User();
+        FirebaseDatabase database =  FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("REPARTIDOR");
+        DatabaseReference reference2 = database.getReference("USER");
+
+        repartidor.setFechaRegistro("21/11/2020");
+        repartidor.setNombre("Armando");
+        repartidor.setApellidos("Lopez Gomez");
+        repartidor.setPassword("1234");
+        repartidor.setUsuario("arm");
+        reference.push().setValue(repartidor);
+
+        user.setCorreo("arm");
+        user.setPassword("1234");
+        reference2.push().setValue(user);
+
+        repartidor.setFechaRegistro("21/11/2020");
+        repartidor.setNombre("Pedro");
+        repartidor.setApellidos("Luna Ramos");
+        repartidor.setPassword("1234");
+        repartidor.setUsuario("ped");
+        reference.push().setValue(repartidor);
+
+        user.setCorreo("ped");
+        user.setPassword("1234");
+        reference2.push().setValue(user);
     }
 
     @Override
@@ -159,8 +192,10 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                       //  navController.navigate(R.id.action_login_to_principalCliente);
                         switch (spinner_userType.getSelectedItem().toString()){
                             case "Repartidor":
+                                Bundle bundle = new Bundle();
+                                bundle.putString("user", correo);
                                 navController = Navigation.findNavController(getView());
-                                navController.navigate(R.id.action_login_fragment_to_principalRepartidorFragment);
+                                navController.navigate(R.id.action_login_fragment_to_principalRepartidorFragment, bundle);
                                 break;
                             case "Cliente":
                                 navController = Navigation.findNavController(getView());

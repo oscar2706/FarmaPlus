@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/principalCliente_fragment">
+    app:startDestination="@id/login_fragment">
     <fragment
         android:id="@+id/login_fragment"
         android:name="com.example.farmaplus.Login"
@@ -71,7 +71,11 @@
         android:id="@+id/historialPedidos"
         android:name="com.example.farmaplus.client.HistorialPedidos"
         android:label="Historial pedidos"
-        tools:layout="@layout/fragment_historial_pedidos" />
+        tools:layout="@layout/fragment_historial_pedidos" >
+        <action
+            android:id="@+id/action_historialPedidos_to_detalle_pedido_cliente"
+            app:destination="@id/detalle_pedido_cliente" />
+    </fragment>
     <fragment
         android:id="@+id/principalCliente_fragment"
         android:name="com.example.farmaplus.client.PrincipalCliente"
@@ -236,7 +240,11 @@
         android:id="@+id/historialPedidosRepartidor"
         android:name="com.example.farmaplus.delivery_man.HistorialPedidosFragment"
         android:label="Historial de pedidos"
-        tools:layout="@layout/repartidor_historial_pedidos" />
+        tools:layout="@layout/repartidor_historial_pedidos" >
+        <action
+            android:id="@+id/action_historialPedidosRepartidor_to_repartidor_detalle_pedido"
+            app:destination="@id/repartidor_detalle_pedido" />
+    </fragment>
     <dialog
         android:id="@+id/dialogConfirmaEntrega"
         android:name="com.example.farmaplus.delivery_man.BottomDialogConfirmaEntrega"
@@ -246,6 +254,16 @@
             android:id="@+id/action_dialogConfirmaEntrega_to_principalRepartidor"
             app:destination="@id/principalRepartidor" />
     </dialog>
+    <fragment
+        android:id="@+id/repartidor_detalle_pedido"
+        android:name="com.example.farmaplus.delivery_man.repartidor_detalle_pedido"
+        android:label="Detalle Pedido"
+        tools:layout="@layout/repartidor_detalle_pedido" />
+    <fragment
+        android:id="@+id/detalle_pedido_cliente"
+        android:name="com.example.farmaplus.detalle_pedido_cliente"
+        android:label="Detalle Pedido"
+        tools:layout="@layout/fragment_detalle_pedido_cliente" />
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.example.farmaplus.AboutUsFragment"

@@ -146,6 +146,7 @@ public class PedidoActual extends Fragment {
                 Pedido pedido = snapshot.getValue(Pedido.class);
 
                 txt_estado.setText(pedido.getEstadoPedido());
+                txt_repartidor.setText(pedido.getRepartidor());
 
                 if(pedido.getTipoEntrega().equals("Domicilio"))
                 {

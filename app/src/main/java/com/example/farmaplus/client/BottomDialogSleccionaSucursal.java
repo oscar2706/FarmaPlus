@@ -204,6 +204,7 @@ public class BottomDialogSleccionaSucursal extends BottomSheetDialogFragment imp
                         Uri downloadUri = uriTask.getResult();
                         pedido.setUrl(downloadUri.toString());
                         pedido.setLugarEntrega(txt_direc.getText().toString());
+                        pedido.setIdRepartidor("sin asignar");
 
                         //INSERT OBJETO PEDIDO FIREBASE
                         reference.child(String.valueOf(maxId+1)).setValue(pedido);
