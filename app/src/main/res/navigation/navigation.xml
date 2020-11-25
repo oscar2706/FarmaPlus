@@ -80,7 +80,8 @@
         android:id="@+id/principalCliente_fragment"
         android:name="com.example.farmaplus.client.PrincipalCliente"
         android:label="Principal"
-        tools:layout="@layout/fragment_principal_cliente">
+        tools:layout="@layout/fragment_principal_cliente"
+        app:startDestination="@id/action_principalCliente_fragment_to_login_fragment">
         <action
             android:id="@+id/action_principalCliente_to_pedidoActual"
             app:destination="@id/pedidoActual"
@@ -129,20 +130,15 @@
             app:exitAnim="@anim/push_left_out"
             app:popEnterAnim="@anim/left_to_right"
             app:popExitAnim="@anim/right_to_left" />
+        <action
+            android:id="@+id/action_principalCliente_fragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.farmaplus.MapsFragment"
         android:label="Sucursales FarmaPlus"
         tools:layout="@layout/fragment_maps" />
-    <dialog
-        android:id="@+id/bottomDialog"
-        android:name="com.example.farmaplus.client.BottomDialog"
-        android:label="BottomDialog" >
-        <action
-            android:id="@+id/action_bottomDialog_to_misDirecciones"
-            app:destination="@id/misDirecciones" />
-    </dialog>
     <dialog
         android:id="@+id/dialog_nuevaDireccion"
         android:name="com.example.farmaplus.client.BottomDialogNuevaDireccion"
@@ -264,4 +260,9 @@
         android:name="com.example.farmaplus.detalle_pedido_cliente"
         android:label="Detalle Pedido"
         tools:layout="@layout/fragment_detalle_pedido_cliente" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.farmaplus.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
 </navigation>
