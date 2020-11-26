@@ -221,7 +221,43 @@
         android:id="@+id/principalFarmacia"
         android:name="com.example.farmaplus.pharmacy.PrincipalFarmaciaFragment"
         android:label="Farmacia"
-        tools:layout="@layout/farmacia_principal_farmacia" />
+        tools:layout="@layout/farmacia_principal_farmacia" >
+        <action
+            android:id="@+id/action_principalFarmacia_to_pedidosNuevos"
+            app:destination="@id/pedidosNuevosFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
+        <action
+            android:id="@+id/action_principalFarmacia_to_pedidosEnCurso"
+            app:destination="@id/pedidosEnCursoFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
+        <action
+            android:id="@+id/action_principalFarmacia_to_historialPedidos"
+            app:destination="@id/historialPedidosFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
+        <action
+            android:id="@+id/action_principalFarmacia_to_medicamentos"
+            app:destination="@id/medicamentosFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
+        <action
+            android:id="@+id/action_principalFarmacia_to_repartidores"
+            app:destination="@id/repartidoresFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
+    </fragment>
     <fragment
         android:id="@+id/pedidoActualRepartidor"
         android:name="com.example.farmaplus.delivery_man.PedidoActualFragment"
@@ -269,4 +305,29 @@
         android:name="com.example.farmaplus.AboutUsFragment"
         android:label="Sobre nosotros"
         tools:layout="@layout/fragment_about_us"/>
+    <fragment
+        android:id="@+id/pedidosNuevosFragment"
+        android:name="com.example.farmaplus.pharmacy.PedidosNuevosFragment"
+        android:label="Pedidos nuevos"
+        tools:layout="@layout/farmacia_pedidos_nuevos" />
+    <fragment
+        android:id="@+id/pedidosEnCursoFragment"
+        android:name="com.example.farmaplus.pharmacy.PedidosEnCursoFragment"
+        android:label="Pedidos en curso"
+        tools:layout="@layout/farmacia_pedidos_en_curso" />
+    <fragment
+        android:id="@+id/historialPedidosFragment"
+        android:name="com.example.farmaplus.pharmacy.HistorialPedidosFragment"
+        android:label="Historial de pedidos"
+        tools:layout="@layout/farmacia_historial_pedidos" />
+    <fragment
+        android:id="@+id/medicamentosFragment"
+        android:name="com.example.farmaplus.pharmacy.MedicamentosFragment"
+        android:label="Medicamentos"
+        tools:layout="@layout/farmacia_medicamentos" />
+    <fragment
+        android:id="@+id/repartidoresFragment"
+        android:name="com.example.farmaplus.pharmacy.RepartidoresFragment"
+        android:label="Repartidores"
+        tools:layout="@layout/farmacia_repartidores" />
 </navigation>
