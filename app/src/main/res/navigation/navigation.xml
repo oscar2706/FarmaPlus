@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/principalFarmacia">
+    app:startDestination="@id/login_fragment">
     <fragment
         android:id="@+id/login_fragment"
         android:name="com.example.farmaplus.Login"
@@ -341,6 +341,15 @@
     <fragment
         android:id="@+id/nuevoPedidoDetalleFragment"
         android:name="com.example.farmaplus.pharmacy.NuevoPedidoDetalleFragment"
-        android:label="farmacia_nuevo_pedido_detalle"
-        tools:layout="@layout/farmacia_nuevo_pedido_detalle" />
+        android:label="Pedido en espera"
+        tools:layout="@layout/farmacia_nuevo_pedido_detalle">
+        <action
+            android:id="@+id/action_nuevoPedidoDetalleFragment_to_bottomDialogSeleccionaRepartidor"
+            app:destination="@id/bottomDialogSeleccionaRepartidor" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomDialogSeleccionaRepartidor"
+        android:name="com.example.farmaplus.pharmacy.BottomDialogSeleccionaRepartidor"
+        android:label="BottomDialogSeleccionaRepartidor"
+        tools:layout="@layout/bottom_dialog_selecciona_repartidor"/>
 </navigation>
