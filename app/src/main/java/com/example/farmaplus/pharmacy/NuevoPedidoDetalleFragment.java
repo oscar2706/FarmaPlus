@@ -52,6 +52,7 @@ public class NuevoPedidoDetalleFragment extends Fragment implements View.OnClick
                 navController.navigate(R.id.action_nuevoPedidoDetalleFragment_to_bottomDialogSeleccionaRepartidor);
                 break;
             case R.id.buttonCancelar:
+                navController.navigate(R.id.action_nuevoPedidoDetalle_to_bottomDialogCancelaPedido);
                 break;
         }
     }

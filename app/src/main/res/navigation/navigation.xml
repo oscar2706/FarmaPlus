@@ -363,6 +363,12 @@
         <action
             android:id="@+id/action_nuevoPedidoDetalleFragment_to_bottomDialogSeleccionaRepartidor"
             app:destination="@id/bottomDialogSeleccionaRepartidor" />
+        <action
+            android:id="@+id/action_nuevoPedidoDetalle_to_bottomDialogConfirmaPedido"
+            app:destination="@id/bottomDialogConfirmaPedido" />
+        <action
+            android:id="@+id/action_nuevoPedidoDetalle_to_bottomDialogCancelaPedido"
+            app:destination="@id/bottomDialogCancelaPedido" />
     </fragment>
     <dialog
         android:id="@+id/bottomDialogSeleccionaRepartidor"
@@ -405,4 +411,14 @@
         android:name="com.example.farmaplus.pharmacy.BottomDialogConfirmaNuevoRepartidor"
         android:label="BottomDialogConfirmaNuevoRepartidor"
         tools:layout="@layout/bottom_dialog_confirma_registra_repartidor" />
+    <dialog
+        android:id="@+id/bottomDialogConfirmaPedido"
+        android:name="com.example.farmaplus.pharmacy.BottomDialogConfirmaPedido"
+        android:label="BottomDialogConfirmaPedido"
+        tools:layout="@layout/bottom_dialog_farmacia_confirma_pedido" />
+    <dialog
+        android:id="@+id/bottomDialogCancelaPedido"
+        android:name="com.example.farmaplus.pharmacy.BottomDialogCancelaPedido"
+        android:label="BottomDialogCancelaPedido"
+        tools:layout="@layout/bottom_dialog_farmacia_cancela_pedido" />
 </navigation>
