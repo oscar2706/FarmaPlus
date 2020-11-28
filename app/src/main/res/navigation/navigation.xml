@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/login_fragment">
+    app:startDestination="@id/principalFarmacia">
     <fragment
         android:id="@+id/login_fragment"
         android:name="com.example.farmaplus.Login"

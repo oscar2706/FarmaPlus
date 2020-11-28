@@ -127,13 +127,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <ImageView
-        android:id="@+id/imageView_domicilio"
+        android:id="@+id/imageView_sucursal2"
         android:layout_width="80dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_current_order"
+        android:src="@drawable/ic_pharmacy"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
         app:layout_constraintTop_toBottomOf="@+id/textView23"
+        app:srcCompat="@drawable/ic_current_order"
         tools:visibility="gone" />
 
     <Button
