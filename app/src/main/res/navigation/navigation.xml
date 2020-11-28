@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_navigation"
-    app:startDestination="@id/principalFarmacia">
+    app:startDestination="@id/login_fragment">
     <fragment
         android:id="@+id/login_fragment"
         android:name="com.example.farmaplus.Login"
@@ -332,7 +332,15 @@
         android:id="@+id/medicamentosFragment"
         android:name="com.example.farmaplus.pharmacy.MedicamentosFragment"
         android:label="Medicamentos"
-        tools:layout="@layout/farmacia_medicamentos" />
+        tools:layout="@layout/farmacia_medicamentos" >
+        <action
+            android:id="@+id/action_medicamentosFragment_to_nuevoMedicamento"
+            app:destination="@id/nuevoMedicamentoFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
+    </fragment>
     <fragment
         android:id="@+id/repartidoresFragment"
         android:name="com.example.farmaplus.pharmacy.RepartidoresFragment"
@@ -352,4 +360,9 @@
         android:name="com.example.farmaplus.pharmacy.BottomDialogSeleccionaRepartidor"
         android:label="BottomDialogSeleccionaRepartidor"
         tools:layout="@layout/bottom_dialog_selecciona_repartidor"/>
+    <fragment
+        android:id="@+id/nuevoMedicamentoFragment"
+        android:name="com.example.farmaplus.pharmacy.NuevoMedicamentoFragment"
+        android:label="Nuevo medicamento"
+        tools:layout="@layout/farmacia_nuevo_medicamento" />
 </navigation>
