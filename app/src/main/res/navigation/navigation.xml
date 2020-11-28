@@ -405,12 +405,20 @@
         android:id="@+id/bottomDialogSubirFotoRepartidor"
         android:name="com.example.farmaplus.pharmacy.BottomDialogSubirFotoRepartidor"
         android:label="BottomDialogSubirFotoRepartidor"
-        tools:layout="@layout/bottom_dialog_foto_repartidor" />
+        tools:layout="@layout/bottom_dialog_foto_repartidor" >
+        <action
+            android:id="@+id/action_bottomDialogSubirFotoRepartidor_to_nuevoRepartidorFragment"
+            app:destination="@id/nuevoRepartidorFragment" />
+    </dialog>
     <dialog
         android:id="@+id/bottomDialogConfirmaNuevoRepartidor"
         android:name="com.example.farmaplus.pharmacy.BottomDialogConfirmaNuevoRepartidor"
         android:label="BottomDialogConfirmaNuevoRepartidor"
-        tools:layout="@layout/bottom_dialog_confirma_registra_repartidor" />
+        tools:layout="@layout/bottom_dialog_confirma_registra_repartidor" >
+        <action
+            android:id="@+id/action_bottomDialogConfirmaNuevoRepartidor_to_repartidoresFragment"
+            app:destination="@id/repartidoresFragment" />
+    </dialog>
     <dialog
         android:id="@+id/bottomDialogConfirmaPedido"
         android:name="com.example.farmaplus.pharmacy.BottomDialogConfirmaPedido"

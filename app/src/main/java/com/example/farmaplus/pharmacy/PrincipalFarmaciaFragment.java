@@ -1,5 +1,6 @@
 package com.example.farmaplus.pharmacy;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,11 @@ import com.example.farmaplus.R;
 public class PrincipalFarmaciaFragment extends Fragment implements View.OnClickListener {
     NavController navController;
 
+    //CONSTANTES DE ACCION
+    public static final int CODE_CAMERA = 21;
+    public static final int CODE_GALLERY = 22;
+    Fragment np;
+
     public PrincipalFarmaciaFragment() {
     }
 
@@ -29,6 +35,7 @@ public class PrincipalFarmaciaFragment extends Fragment implements View.OnClickL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        np = new NuevoRepartidorFragment();
     }
 
     @Override
@@ -73,6 +80,22 @@ public class PrincipalFarmaciaFragment extends Fragment implements View.OnClickL
             case R.id.cardView_Repartidores:
                 navController.navigate(R.id.action_principalFarmacia_to_repartidores);
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case CODE_GALLERY:
+                np.onActivityResult(requestCode, resultCode, data);
+                break;
+
+            case CODE_CAMERA:
+                np.onActivityResult(requestCode, resultCode, data);
+                break;
+
         }
     }
 }

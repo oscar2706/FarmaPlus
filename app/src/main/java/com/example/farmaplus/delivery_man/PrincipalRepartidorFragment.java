@@ -16,9 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.farmaplus.R;
 import com.example.farmaplus.Repartidor;
 import com.example.farmaplus.client.Direccion;
@@ -37,6 +39,10 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
      String correo;
      TextView txt_user;
      public static String nombreRep;
+    public static String uriFoto;
+     ImageView fotoRep;
+
+
 
 
     public PrincipalRepartidorFragment() {
@@ -72,9 +78,12 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
         cardView_pedidosPendientes.setOnClickListener(this);
         cardView_historialPedidos.setOnClickListener(this);
         txt_user = view.findViewById(R.id.textView24);
+        fotoRep = view.findViewById(R.id.imageView_avatar);
 
         try {
             txt_user.setText("Bienvenido "+nombreRep);
+            Glide.with(getActivity()).load(uriFoto).into(fotoRep);
+
         }catch (Exception e){}
 
         return view;
@@ -95,8 +104,15 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
                     rep.setIdRepartidor(ds.getKey());
 
                     idRepartidor = rep.getIdRepartidor();
-                    nombreRep = rep.getNombre();
-                   txt_user.setText("Bienvenido "+rep.getNombre());
+                    String string = rep.getNombre();
+                    String[] parts = string.split(" ");
+                    String nombre = parts[0];
+
+                    nombreRep = nombre;
+                    uriFoto = rep.getFotoRepartidor();
+
+                   txt_user.setText("Bienvenido "+nombre);
+                    Glide.with(getActivity()).load(rep.getFotoRepartidor()).into(fotoRep);
                     //Toast.makeText(getContext(), idRepartidor, Toast.LENGTH_LONG).show();
                 }
 

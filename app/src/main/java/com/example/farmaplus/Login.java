@@ -171,6 +171,7 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
     @Override
     public void onClick(View view) {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
         final String password = txt_password.getText().toString();
         final String correo = txt_userName.getText().toString();
 
@@ -194,8 +195,9 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                             case "Repartidor":
                                 Bundle bundle = new Bundle();
                                 bundle.putString("user", correo);
-                                navController = Navigation.findNavController(getView());
-                                navController.navigate(R.id.action_login_fragment_to_principalRepartidorFragment, bundle);
+                                NavController navController3;
+                                navController3 = Navigation.findNavController(getView());
+                                navController3.navigate(R.id.action_login_fragment_to_principalRepartidorFragment, bundle);
                                 break;
                             case "Cliente":
                                 navController = Navigation.findNavController(getView());
@@ -203,8 +205,9 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                                 navController.navigate(R.id.action_login_to_principalCliente);
                                 break;
                             case "Farmacia":
-                                navController = Navigation.findNavController(getView());
-                                navController.navigate(R.id.action_login_fragment_to_principalFarmaciaFragment);
+                                NavController navController2;
+                                navController2 = Navigation.findNavController(getView());
+                                navController2.navigate(R.id.action_login_fragment_to_principalFarmaciaFragment);
                                 break;
                         }
                     }
