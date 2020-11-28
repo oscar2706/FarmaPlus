@@ -387,5 +387,22 @@
         android:id="@+id/nuevoRepartidorFragment"
         android:name="com.example.farmaplus.pharmacy.NuevoRepartidorFragment"
         android:label="Nuevo repartidor"
-        tools:layout="@layout/farmacia_nuevo_repartidor" />
+        tools:layout="@layout/farmacia_nuevo_repartidor" >
+        <action
+            android:id="@+id/action_nuevoRepartidor_to_bottomDialogSubirFotoRepartidor"
+            app:destination="@id/bottomDialogSubirFotoRepartidor" />
+        <action
+            android:id="@+id/action_nuevoRepartidor_to_bottomDialogConfirmaNuevoRepartidor"
+            app:destination="@id/bottomDialogConfirmaNuevoRepartidor" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomDialogSubirFotoRepartidor"
+        android:name="com.example.farmaplus.pharmacy.BottomDialogSubirFotoRepartidor"
+        android:label="BottomDialogSubirFotoRepartidor"
+        tools:layout="@layout/bottom_dialog_foto_repartidor" />
+    <dialog
+        android:id="@+id/bottomDialogConfirmaNuevoRepartidor"
+        android:name="com.example.farmaplus.pharmacy.BottomDialogConfirmaNuevoRepartidor"
+        android:label="BottomDialogConfirmaNuevoRepartidor"
+        tools:layout="@layout/bottom_dialog_confirma_registra_repartidor" />
 </navigation>

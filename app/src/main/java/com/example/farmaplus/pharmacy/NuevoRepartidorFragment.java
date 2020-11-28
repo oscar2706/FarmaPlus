@@ -16,7 +16,7 @@ import android.widget.Button;
 import com.example.farmaplus.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
-public class NuevoRepartidorFragment extends Fragment {
+public class NuevoRepartidorFragment extends Fragment implements View.OnClickListener {
     NavController navController;
 
     public NuevoRepartidorFragment() {
@@ -31,6 +31,12 @@ public class NuevoRepartidorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.farmacia_nuevo_repartidor, container, false);
+
+        Button buttonCambiarFoto = view.findViewById(R.id.buttonCambiarFoto);
+        buttonCambiarFoto.setOnClickListener(this);
+        Button buttonRegistrar = view.findViewById(R.id.buttonRegistrarRepartidor);
+        buttonRegistrar.setOnClickListener(this);
+
         return view;
     }
 
@@ -39,5 +45,17 @@ public class NuevoRepartidorFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         Navigation.setViewNavController(view, navController);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.buttonRegistrarRepartidor:
+                navController.navigate(R.id.action_nuevoRepartidor_to_bottomDialogConfirmaNuevoRepartidor);
+                break;
+            case R.id.buttonCambiarFoto:
+                navController.navigate(R.id.action_nuevoRepartidor_to_bottomDialogSubirFotoRepartidor);
+                break;
+        }
     }
 }
