@@ -346,7 +346,15 @@
         android:id="@+id/repartidoresFragment"
         android:name="com.example.farmaplus.pharmacy.RepartidoresFragment"
         android:label="Repartidores"
-        tools:layout="@layout/farmacia_repartidores" />
+        tools:layout="@layout/farmacia_repartidores" >
+        <action
+            android:id="@+id/action_repartidores_to_nuevoRepartidor"
+            app:destination="@id/nuevoRepartidorFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
+    </fragment>
     <fragment
         android:id="@+id/nuevoPedidoDetalleFragment"
         android:name="com.example.farmaplus.pharmacy.NuevoPedidoDetalleFragment"
@@ -375,4 +383,9 @@
         android:name="com.example.farmaplus.pharmacy.BottomDialogConfirmaMedicamento"
         android:label="BottomDialogConfirmaMedicamento"
         tools:layout="@layout/bottom_dialog_confirma_medicamento" />
+    <fragment
+        android:id="@+id/nuevoRepartidorFragment"
+        android:name="com.example.farmaplus.pharmacy.NuevoRepartidorFragment"
+        android:label="Nuevo repartidor"
+        tools:layout="@layout/farmacia_nuevo_repartidor" />
 </navigation>

@@ -11,14 +11,15 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.farmaplus.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
-public class RepartidoresFragment extends Fragment implements View.OnClickListener {
+public class NuevoRepartidorFragment extends Fragment {
     NavController navController;
 
-    public RepartidoresFragment() {
+    public NuevoRepartidorFragment() {
     }
 
     @Override
@@ -29,9 +30,7 @@ public class RepartidoresFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.farmacia_repartidores, container, false);
-        ExtendedFloatingActionButton button_nuevoRepartidor = view.findViewById(R.id.extended_fab_nuevo_repartidor);
-        button_nuevoRepartidor.setOnClickListener(this);
+        View view = inflater.inflate(R.layout.farmacia_nuevo_repartidor, container, false);
         return view;
     }
 
@@ -40,10 +39,5 @@ public class RepartidoresFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         Navigation.setViewNavController(view, navController);
-    }
-
-    @Override
-    public void onClick(View view) {
-        navController.navigate(R.id.action_repartidores_to_nuevoRepartidor);
     }
 }
