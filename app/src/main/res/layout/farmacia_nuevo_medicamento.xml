@@ -98,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/select_formaFarmaceutica" />
 
     <Button
-        android:id="@+id/buttonAceptar"
+        android:id="@+id/buttonRegistrarMedicamento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -126,10 +126,10 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:cornerRadius="14dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonAceptar"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonRegistrarMedicamento"
         app:layout_constraintEnd_toStartOf="@+id/guideline30"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/buttonAceptar" />
+        app:layout_constraintStart_toEndOf="@+id/buttonRegistrarMedicamento" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

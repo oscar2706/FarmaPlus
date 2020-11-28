@@ -8,7 +8,8 @@
         android:id="@+id/login_fragment"
         android:name="com.example.farmaplus.Login"
         android:label="Inicio de sesión"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_login"
+        app:startDestination="@id/action_login_fragment_to_principalFarmaciaFragment">
         <action
             android:id="@+id/action_login_to_principalCliente"
             app:destination="@id/principalCliente_fragment"
@@ -364,5 +365,14 @@
         android:id="@+id/nuevoMedicamentoFragment"
         android:name="com.example.farmaplus.pharmacy.NuevoMedicamentoFragment"
         android:label="Nuevo medicamento"
-        tools:layout="@layout/farmacia_nuevo_medicamento" />
+        tools:layout="@layout/farmacia_nuevo_medicamento" >
+        <action
+            android:id="@+id/action_nuevoMedicamento_to_bottomDialogConfirmaMedicamento"
+            app:destination="@id/bottomDialogConfirmaMedicamento" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomDialogConfirmaMedicamento"
+        android:name="com.example.farmaplus.pharmacy.BottomDialogConfirmaMedicamento"
+        android:label="BottomDialogConfirmaMedicamento"
+        tools:layout="@layout/bottom_dialog_confirma_medicamento" />
 </navigation>
