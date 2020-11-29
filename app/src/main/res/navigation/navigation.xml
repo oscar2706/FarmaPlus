@@ -369,12 +369,25 @@
         <action
             android:id="@+id/action_nuevoPedidoDetalle_to_bottomDialogCancelaPedido"
             app:destination="@id/bottomDialogCancelaPedido" />
+        <action
+            android:id="@+id/action_nuevoPedidoDetalleFragment_to_pedidosNuevosFragment"
+            app:destination="@id/pedidosNuevosFragment" />
+        <action
+            android:id="@+id/action_nuevoPedidoDetalleFragment_to_principalFarmacia"
+            app:destination="@id/principalFarmacia" />
+        <action
+            android:id="@+id/action_nuevoPedidoDetalleFragment_to_recetaDetalleImagen"
+            app:destination="@id/recetaDetalleImagen" />
     </fragment>
     <dialog
         android:id="@+id/bottomDialogSeleccionaRepartidor"
         android:name="com.example.farmaplus.pharmacy.BottomDialogSeleccionaRepartidor"
         android:label="BottomDialogSeleccionaRepartidor"
-        tools:layout="@layout/bottom_dialog_selecciona_repartidor"/>
+        tools:layout="@layout/bottom_dialog_selecciona_repartidor">
+        <action
+            android:id="@+id/action_bottomDialogSeleccionaRepartidor_to_principalFarmacia"
+            app:destination="@id/principalFarmacia" />
+    </dialog>
     <fragment
         android:id="@+id/nuevoMedicamentoFragment"
         android:name="com.example.farmaplus.pharmacy.NuevoMedicamentoFragment"
@@ -428,5 +441,14 @@
         android:id="@+id/bottomDialogCancelaPedido"
         android:name="com.example.farmaplus.pharmacy.BottomDialogCancelaPedido"
         android:label="BottomDialogCancelaPedido"
-        tools:layout="@layout/bottom_dialog_farmacia_cancela_pedido" />
+        tools:layout="@layout/bottom_dialog_farmacia_cancela_pedido" >
+        <action
+            android:id="@+id/action_bottomDialogCancelaPedido_to_principalFarmacia"
+            app:destination="@id/principalFarmacia" />
+    </dialog>
+    <fragment
+        android:id="@+id/recetaDetalleImagen"
+        android:name="com.example.farmaplus.pharmacy.recetaDetalleImagen"
+        android:label="Receta"
+        tools:layout="@layout/fragment_receta_detalle_imagen" />
 </navigation>

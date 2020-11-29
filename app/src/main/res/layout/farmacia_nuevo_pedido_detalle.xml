@@ -34,8 +34,8 @@
 
     <ImageView
         android:id="@+id/imageView_fotoReceta"
-        android:layout_width="239dp"
-        android:layout_height="151dp"
+        android:layout_width="214dp"
+        android:layout_height="108dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
@@ -46,8 +46,8 @@
 
     <TextView
         android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="127dp"
+        android:layout_height="31dp"
         android:layout_marginTop="16dp"
         android:text="Comentarios"
         android:textSize="18sp"
@@ -71,9 +71,13 @@
 
     <TextView
         android:id="@+id/textView22"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="354dp"
+        android:layout_height="44dp"
         android:text="Estos son los comentarios del pedido"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="7sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
@@ -84,7 +88,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autoSizeMaxTextSize="100sp"
-        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMinTextSize="8sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
         android:text="En sucursal"
@@ -97,12 +101,12 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="76dp"
         android:text=" Fecha"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -112,6 +116,10 @@
         android:layout_height="wrap_content"
         android:text="Esta es la fecha en que se realizo el pedido"
         android:textAlignment="center"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="7sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
@@ -119,8 +127,8 @@
 
     <ImageView
         android:id="@+id/imageView_sucursal"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="74dp"
+        android:layout_height="63dp"
         android:src="@drawable/ic_pharmacy"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
@@ -128,14 +136,16 @@
 
     <ImageView
         android:id="@+id/imageView_sucursal2"
-        android:layout_width="80dp"
-        android:layout_height="100dp"
+        android:layout_width="79dp"
+        android:layout_height="67dp"
         android:src="@drawable/ic_pharmacy"
+        android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
         app:layout_constraintTop_toBottomOf="@+id/textView23"
         app:srcCompat="@drawable/ic_current_order"
-        tools:visibility="gone" />
+        tools:visibility="gone"/>
 
     <Button
         android:id="@+id/buttonAceptar"

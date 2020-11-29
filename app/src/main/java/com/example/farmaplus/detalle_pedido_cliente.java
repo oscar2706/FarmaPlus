@@ -1,5 +1,7 @@
 package com.example.farmaplus;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -21,8 +24,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class detalle_pedido_cliente extends Fragment {
-    TextView txt_com, txt_direccion, txt_repartidor, txt_fecha, txt_idp;
+    TextView txt_com, txt_direccion, txt_repartidor, txt_fecha, txt_idp, txt_estP;
     ImageView receta;
+    ProgressBar progreso;
 
 
     public detalle_pedido_cliente() {
@@ -49,7 +53,9 @@ public class detalle_pedido_cliente extends Fragment {
         txt_fecha = view.findViewById(R.id.textView27);
         txt_repartidor = view.findViewById(R.id.textView25);
         txt_idp = view.findViewById(R.id.textView19);
+        txt_estP = view.findViewById(R.id.textView28);
         receta = view.findViewById(R.id.imageView_fotoReceta);
+        progreso = view.findViewById(R.id.progressBar);
 
         cargaDatosFire(idP);
 
@@ -74,6 +80,17 @@ public class detalle_pedido_cliente extends Fragment {
                     txt_fecha.setText(p.getFechaPedido());
                     txt_repartidor.setText(p.getRepartidor());
                     Glide.with(getActivity()).load(p.getUrl()).into(receta);
+                    if(p.getEstadoPedido().equals("Cancelado"))
+                    {
+                        txt_estP.setText("PEDIDO CANCELADO");
+                            progreso.setProgress(100);
+                            progreso.setProgressTintList(ColorStateList.valueOf(Color.RED));
+                    }else if(p.getEstadoPedido().equals("Entregado"))
+                    {
+                        txt_estP.setText("PEDIDO ENTREGADO CON EXITO");
+                        progreso.setProgress(100);
+                        progreso.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 143, 57)));
+                    }
                     //  Toast.makeText(getActivity(), p.getComentarios()+"-"+p.getEstadoPedido(), Toast.LENGTH_SHORT).show();
                 }
 

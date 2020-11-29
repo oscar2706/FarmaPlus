@@ -1,5 +1,7 @@
 package com.example.farmaplus.client;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -111,6 +113,11 @@ public class PedidoActual extends Fragment {
                                     break;
                                 case "Entregado":
                                     progreso.setProgress(100);
+                                    progreso.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 143, 57)));
+                                    break;
+                                case "Cancelado":
+                                    progreso.setProgress(100);
+                                    progreso.setProgressTintList(ColorStateList.valueOf(Color.RED));
                                     break;
                             }
                         }
@@ -132,6 +139,11 @@ public class PedidoActual extends Fragment {
                                     break;
                                 case "Entregado":
                                     progreso.setProgress(100);
+                                    progreso.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 143, 57)));
+                                    break;
+                                case "Cancelado":
+                                    progreso.setProgress(100);
+                                    progreso.setProgressTintList(ColorStateList.valueOf(Color.RED));
                                     break;
                             }
                         }
@@ -147,6 +159,7 @@ public class PedidoActual extends Fragment {
 
                 txt_estado.setText(pedido.getEstadoPedido());
                 txt_repartidor.setText(pedido.getRepartidor());
+                txt_com.setText(pedido.getComentarios());
 
                 if(pedido.getTipoEntrega().equals("Domicilio"))
                 {
@@ -169,7 +182,13 @@ public class PedidoActual extends Fragment {
                             break;
                         case "Entregado":
                             PrincipalCliente.enCurso = false;
+                            progreso.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 143, 57)));
                             progreso.setProgress(100);
+                            break;
+                        case "Cancelado":
+                            PrincipalCliente.enCurso = false;
+                            progreso.setProgress(100);
+                            progreso.setProgressTintList(ColorStateList.valueOf(Color.RED));
                             break;
                     }
                 }
@@ -190,9 +209,16 @@ public class PedidoActual extends Fragment {
                             progreso.setProgress(80);
                             break;
                         case "Entregado":
+                            progreso.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 143, 57)));
                             PrincipalCliente.enCurso = false;
                             progreso.setProgress(100);
                             break;
+                        case "Cancelado":
+                            PrincipalCliente.enCurso = false;
+                            progreso.setProgress(100);
+                            progreso.setProgressTintList(ColorStateList.valueOf(Color.RED));
+                            break;
+
                     }
                 }
 

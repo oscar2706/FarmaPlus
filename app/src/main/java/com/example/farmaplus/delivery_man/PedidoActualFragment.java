@@ -113,6 +113,19 @@ public class PedidoActualFragment extends Fragment implements View.OnClickListen
                             Glide.with(getActivity()).load(pedido.getUrl()).into(imgReceta);
                         }
 
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference reference = database.getReference("PEDIDO");
+
+                        HashMap hashMap = new HashMap();
+                            hashMap.put("estadoPedido", "En Camino");
+
+                        reference.child(idP).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+                            @Override
+                            public void onSuccess(Object o) {
+                                //    progressDialog.dismiss();
+                            }
+                        });
+
                         BuscaCoordenadas();
                     }
                 }
