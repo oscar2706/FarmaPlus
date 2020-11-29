@@ -11,7 +11,10 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Switch;
 
 import com.example.farmaplus.R;
@@ -19,6 +22,8 @@ import com.google.android.material.navigation.NavigationView;
 
 public class NuevoMedicamentoFragment extends Fragment implements View.OnClickListener {
     NavController navController;
+    AutoCompleteTextView editTextFilledExposedDropdown;
+    EditText edit_marca, edit_activo, edit_dosis, edit_precio;
 
     public NuevoMedicamentoFragment() {
     }
@@ -34,6 +39,24 @@ public class NuevoMedicamentoFragment extends Fragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.farmacia_nuevo_medicamento, container, false);
         Button button_registrarMedicamento = view.findViewById(R.id.buttonRegistrarMedicamento);
         button_registrarMedicamento.setOnClickListener(this);
+
+        String[] COUNTRIES = new String[] {"Item 1", "Item 2", "Item 3", "Item 4"};
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(
+                        getContext(),
+                        R.layout.forma_farmaceutica_item,
+                        COUNTRIES);
+
+        editTextFilledExposedDropdown = view.findViewById(R.id.filled_exposed_dropdown);
+        editTextFilledExposedDropdown.setAdapter(adapter);
+
+        edit_activo = view.findViewById(R.id.editText_activo);
+        edit_dosis = view.findViewById(R.id.editText_dosis);
+        edit_marca = view.findViewById(R.id.editText_marca);
+        edit_precio = view.findViewById(R.id.editText_precio);
+
+
         return view;
     }
 

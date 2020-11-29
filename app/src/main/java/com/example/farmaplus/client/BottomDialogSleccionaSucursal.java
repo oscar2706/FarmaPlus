@@ -18,6 +18,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.farmaplus.CustomToast;
 import com.example.farmaplus.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -210,7 +211,8 @@ public class BottomDialogSleccionaSucursal extends BottomSheetDialogFragment imp
                         reference.child(String.valueOf(maxId+1)).setValue(pedido);
 
                         progressDialog.dismiss();
-                        Toast.makeText(getActivity(), "Pedido Recibido Por Farmacia", Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(getActivity(), "Pedido Recibido Por Farmacia", Toast.LENGTH_SHORT).show();
+                        CustomToast.showOkToast(getActivity(), "Pedido Recibido");
                         Navigation.findNavController(getActivity(), R.id.fragment_navigation).navigate(
                                 R.id.action_bottomDialogSleccionaSucursal_to_principalCliente_fragment2);
                     }
