@@ -73,7 +73,7 @@ public class PedidosEnCursoFragment extends Fragment implements View.OnClickList
                 String id = PedidoService.pedidos.get(rc.getChildAdapterPosition(view)).getId();
                 Bundle bundle = new Bundle();
                 bundle.putString("idP", id);
-                navController.navigate(R.id.action_pedidosEnCursoFragment_to_farmaciaPedidoEncursoDetalle, bundle);
+               navController.navigate(R.id.action_pedidosEnCursoFragment_to_farmaciaPedidoEncursoDetalle, bundle);
             }
         });
         rc.setAdapter(adapter);
@@ -96,7 +96,9 @@ public class PedidosEnCursoFragment extends Fragment implements View.OnClickList
                     Pedido p = ds.getValue(Pedido.class);
                         p.setId(ds.getKey());
                         //   if(p.getUser().equals(PrincipalActivity.user))
+                    if(!p.getEstadoPedido().equals("Enviado")){
                         PedidoService.addPedido(p);
+                    }
                 }
 
                 rc.getAdapter().notifyDataSetChanged();
@@ -121,7 +123,7 @@ public class PedidosEnCursoFragment extends Fragment implements View.OnClickList
 
                 for (DataSnapshot ds: snapshot.getChildren()){
                     Pedido p = ds.getValue(Pedido.class);
-                    if(p.getTipoEntrega().equals("En Sucursal")) {
+                    if(p.getTipoEntrega().equals("En Sucursal") && !p.getEstadoPedido().equals("Enviado")) {
                         p.setId(ds.getKey());
                         //   if(p.getUser().equals(PrincipalActivity.user))
                         PedidoService.addPedido(p);
@@ -152,7 +154,7 @@ public class PedidosEnCursoFragment extends Fragment implements View.OnClickList
 
                 for (DataSnapshot ds: snapshot.getChildren()){
                     Pedido p = ds.getValue(Pedido.class);
-                    if(p.getTipoEntrega().equals("Domicilio")) {
+                    if(p.getTipoEntrega().equals("Domicilio") && !p.getEstadoPedido().equals("Enviado")) {
                         p.setId(ds.getKey());
                         //   if(p.getUser().equals(PrincipalActivity.user))
                         PedidoService.addPedido(p);

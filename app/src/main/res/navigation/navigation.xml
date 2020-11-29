@@ -465,5 +465,9 @@
         android:id="@+id/farmaciaPedidoEncursoDetalle"
         android:name="com.example.farmaplus.farmaciaPedidoEncursoDetalle"
         android:label="Pedido en Curso"
-        tools:layout="@layout/farmacia_pedidoencurso_detalle" />
+        tools:layout="@layout/farmacia_pedidoencurso_detalle" >
+        <action
+            android:id="@+id/action_farmaciaPedidoEncursoDetalle_to_principalFarmacia"
+            app:destination="@id/principalFarmacia" />
+    </fragment>
 </navigation>
