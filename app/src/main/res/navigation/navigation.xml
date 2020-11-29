@@ -323,7 +323,17 @@
         android:id="@+id/pedidosEnCursoFragment"
         android:name="com.example.farmaplus.pharmacy.PedidosEnCursoFragment"
         android:label="Pedidos en curso"
-        tools:layout="@layout/farmacia_pedidos_en_curso" />
+        tools:layout="@layout/farmacia_pedidos_en_curso" >
+        <action
+            android:id="@+id/action_pedidosEnCursoFragment_self"
+            app:destination="@id/pedidosEnCursoFragment" />
+        <action
+            android:id="@+id/action_pedidosEnCursoFragment_self2"
+            app:destination="@id/pedidosEnCursoFragment" />
+        <action
+            android:id="@+id/action_pedidosEnCursoFragment_to_farmaciaPedidoEncursoDetalle"
+            app:destination="@id/farmaciaPedidoEncursoDetalle" />
+    </fragment>
     <fragment
         android:id="@+id/historialPedidosFragment"
         android:name="com.example.farmaplus.pharmacy.HistorialPedidosFragment"
@@ -451,4 +461,9 @@
         android:name="com.example.farmaplus.pharmacy.recetaDetalleImagen"
         android:label="Receta"
         tools:layout="@layout/fragment_receta_detalle_imagen" />
+    <fragment
+        android:id="@+id/farmaciaPedidoEncursoDetalle"
+        android:name="com.example.farmaplus.farmaciaPedidoEncursoDetalle"
+        android:label="Pedido en Curso"
+        tools:layout="@layout/farmacia_pedidoencurso_detalle" />
 </navigation>
