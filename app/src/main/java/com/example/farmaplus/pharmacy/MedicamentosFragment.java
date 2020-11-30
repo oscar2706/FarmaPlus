@@ -73,7 +73,7 @@ public class MedicamentosFragment extends Fragment {
                 String id = MedicamentoService.medicamentos.get(rc.getChildAdapterPosition(view)).getIdMedicamento();
                 Bundle bundle = new Bundle();
                 bundle.putString("idP", id);
-              //  navController.navigate(R.id.action_historialPedidos_to_detalle_pedido_cliente, bundle);
+                navController.navigate(R.id.action_medicamentosFragment_to_detalleMedicamento, bundle);
             }
         });
         rc.setAdapter(adapter);

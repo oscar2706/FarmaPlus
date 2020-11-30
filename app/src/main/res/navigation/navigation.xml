@@ -58,7 +58,11 @@
         android:id="@+id/medicamentos"
         android:name="com.example.farmaplus.client.Medicamentos"
         android:label="Medicamentos"
-        tools:layout="@layout/fragment_medicamentos" />
+        tools:layout="@layout/fragment_medicamentos" >
+        <action
+            android:id="@+id/action_medicamentos_to_detalleMedicamento"
+            app:destination="@id/detalleMedicamento" />
+    </fragment>
     <fragment
         android:id="@+id/misDirecciones"
         android:name="com.example.farmaplus.client.MisDirecciones"
@@ -338,7 +342,11 @@
         android:id="@+id/historialPedidosFragment"
         android:name="com.example.farmaplus.pharmacy.HistorialPedidosFragment"
         android:label="Historial de pedidos"
-        tools:layout="@layout/farmacia_historial_pedidos" />
+        tools:layout="@layout/farmacia_historial_pedidos" >
+        <action
+            android:id="@+id/action_historialPedidosFragment_to_detalle_pedido_cliente"
+            app:destination="@id/detalle_pedido_cliente" />
+    </fragment>
     <fragment
         android:id="@+id/medicamentosFragment"
         android:name="com.example.farmaplus.pharmacy.MedicamentosFragment"
@@ -476,6 +484,6 @@
     <fragment
         android:id="@+id/detalleMedicamento"
         android:name="com.example.farmaplus.detalleMedicamento"
-        android:label="fragment_detalle_medicamento"
+        android:label="Medicamento"
         tools:layout="@layout/fragment_detalle_medicamento" />
 </navigation>
