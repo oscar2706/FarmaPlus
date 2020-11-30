@@ -151,9 +151,9 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                 user.setPassword(password);
 
                 reference.child(String.valueOf(maxId+1)).setValue(user);
-              //  NAVEGAR MAPA
-              /*  NavController navController = Navigation.findNavController(getView());
-                navController.navigate(R.id.action_login_fragment_to_mapsFragment);*/
+                //  NAVEGAR MAPA
+                NavController navController = Navigation.findNavController(getView());
+                navController.navigate(R.id.action_login_to_registrarCuenta);
 
              //   reference.push().setValue(user);
             }

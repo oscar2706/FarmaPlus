@@ -33,6 +33,13 @@
             app:destination="@id/principalFarmacia"
             app:popUpTo="@id/login_fragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_to_registrarCuenta"
+            app:destination="@id/registrarCuentaFragment"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out"
+            app:popEnterAnim="@anim/left_to_right"
+            app:popExitAnim="@anim/right_to_left" />
     </fragment>
     <fragment
         android:id="@+id/nuevoPedido"
@@ -486,4 +493,9 @@
         android:name="com.example.farmaplus.detalleMedicamento"
         android:label="Medicamento"
         tools:layout="@layout/fragment_detalle_medicamento" />
+    <fragment
+        android:id="@+id/registrarCuentaFragment"
+        android:name="com.example.farmaplus.RegistrarCuentaFragment"
+        android:label="fragment_registrar_cuenta"
+        tools:layout="@layout/fragment_registrar_cuenta" />
 </navigation>
