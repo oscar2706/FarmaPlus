@@ -40,7 +40,8 @@ public class NuevoMedicamentoFragment extends Fragment implements View.OnClickLi
         Button button_registrarMedicamento = view.findViewById(R.id.buttonRegistrarMedicamento);
         button_registrarMedicamento.setOnClickListener(this);
 
-        String[] COUNTRIES = new String[] {"Item 1", "Item 2", "Item 3", "Item 4"};
+        String[] COUNTRIES = new String[] {"Jarabe", "Suspensión","Emulsión", "Gotas", "Bebible", "Inyectable", "Comprimidos", "Grageas",
+                "Efervescentes", "Cápsulas", "Tabletas", "Pomada", "Gel", "Crema"};
 
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(
@@ -71,7 +72,13 @@ public class NuevoMedicamentoFragment extends Fragment implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonRegistrarMedicamento:
-                navController.navigate(R.id.action_nuevoMedicamento_to_bottomDialogConfirmaMedicamento);
+                Bundle bundle = new Bundle();
+                bundle.putString("activo", edit_activo.getText().toString());
+                bundle.putString("dosis", edit_dosis.getText().toString());
+                bundle.putString("marca", edit_marca.getText().toString());
+                bundle.putString("precio", edit_precio.getText().toString());
+                bundle.putString("presentacion", editTextFilledExposedDropdown.getText().toString());
+                navController.navigate(R.id.action_nuevoMedicamento_to_bottomDialogConfirmaMedicamento, bundle);
                 break;
         }
     }

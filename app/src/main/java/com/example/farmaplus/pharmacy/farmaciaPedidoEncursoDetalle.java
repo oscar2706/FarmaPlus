@@ -1,4 +1,4 @@
-package com.example.farmaplus;
+package com.example.farmaplus.pharmacy;
 
 import android.os.Bundle;
 
@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.farmaplus.CustomToast;
+import com.example.farmaplus.R;
 import com.example.farmaplus.client.Pedido;
 import com.example.farmaplus.pharmacy.PedidosEnCursoFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
