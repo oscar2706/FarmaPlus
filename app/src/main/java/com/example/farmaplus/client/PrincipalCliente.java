@@ -220,7 +220,7 @@ public class PrincipalCliente extends Fragment implements View.OnClickListener {
             case R.id.menu_logout:
                 enCurso = false;
                 DireccionService.vaciarLista();
-                navController.navigate(R.id.action_principalCliente_fragment_to_login_fragment);
+                navController.navigate(R.id.login_fragment);
                 break;
         }
         return super.onOptionsItemSelected(item);

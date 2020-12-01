@@ -201,7 +201,6 @@ public class Login extends Fragment implements View.OnClickListener, GoogleApiCl
                                 break;
                             case "Cliente":
                                 navController = Navigation.findNavController(getView());
-                             //   navController.navigate(R.id.action_login_to_principalCliente);
                                 navController.navigate(R.id.action_login_to_principalCliente);
                                 break;
                             case "Farmacia":
