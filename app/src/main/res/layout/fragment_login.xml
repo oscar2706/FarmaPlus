@@ -121,6 +121,8 @@
         android:id="@+id/button_signUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorSurface"
+        android:textColor="?attr/colorOnSurface"
         android:text="Registrarse"
         android:textAllCaps="true"
         android:textSize="14sp"
@@ -128,6 +130,7 @@
         app:cornerRadius="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
