@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:behavior_peekHeight="400dp"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -35,29 +37,24 @@
 
     <TextView
         android:id="@+id/textviewSucc"
-        android:layout_width="290dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="72dp"
-        android:text="Sucursal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-        android:autoSizeMaxTextSize="100sp"
-        android:autoSizeMinTextSize="10sp"
-
-        android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
+        android:textAlignment="center"
         android:textColor="?attr/colorPrimary"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_sucursal"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button_aceptar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="Aceptar"
@@ -70,7 +67,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_sucursal" />
+        app:layout_constraintTop_toBottomOf="@+id/textviewSucc" />
 
     <Button
         android:id="@+id/button_cancelar"
@@ -92,10 +89,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_sucursal"
-        android:layout_width="338dp"
+        android:layout_width="0dp"
         android:layout_height="191dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/textviewSucc" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 </androidx.constraintlayout.widget.ConstraintLayout>
