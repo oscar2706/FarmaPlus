@@ -72,10 +72,8 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
         View view = inflater.inflate(R.layout.repartidor_principal, container, false);
 
         CardView cardView_pedidoEnCurso = view.findViewById(R.id.cardView_PedidoEnCurso);
-        CardView cardView_pedidosPendientes = view.findViewById(R.id.cardView_PedidosPendientes);
         CardView cardView_historialPedidos = view.findViewById(R.id.cardView_HistoialPedidos);
         cardView_pedidoEnCurso.setOnClickListener(this);
-        cardView_pedidosPendientes.setOnClickListener(this);
         cardView_historialPedidos.setOnClickListener(this);
         txt_user = view.findViewById(R.id.textView24);
         fotoRep = view.findViewById(R.id.imageView_avatar);
@@ -132,9 +130,6 @@ public class PrincipalRepartidorFragment extends Fragment implements View.OnClic
         switch (view.getId()) {
             case R.id.cardView_PedidoEnCurso:
                 navController.navigate(R.id.action_principalRepartidor_to_pedidoActualRepartidor);
-                break;
-            case R.id.cardView_PedidosPendientes:
-                navController.navigate(R.id.action_principalRepartidor_to_pedidosPendientesRepartidor);
                 break;
             case R.id.cardView_HistoialPedidos:
                 navController.navigate(R.id.action_principalRepartidor_to_historialPedidosRepartidor);
